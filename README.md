@@ -2,6 +2,14 @@
 
 Maintainer documentation for the ZJV website.
 
+## Documentation
+
+Each section of the site has its own `README.md` with details specific to that section. Keep this top-level README lean — put section-specific information in the appropriate subfolder README instead.
+
+| Section | README |
+|---------|--------|
+| News | [news/README.md](news/README.md) |
+
 ## Overview
 
 This is the source for the ZJV website — the homepage of the cantonal Judo federation Zurich (Zürcher Judo Verband). The site is in German, with occasional English terms. It is a self-contained site with no external frameworks. Content is served as-is, with optional server-side rendering via PHP where needed.
