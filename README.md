@@ -4,7 +4,7 @@ Maintainer documentation for the ZJV website.
 
 ## Overview
 
-This is the source for the ZJV website. It is a self-contained site with no external frameworks. Content is served as-is, with optional server-side rendering via PHP where needed.
+This is the source for the ZJV website — the homepage of the cantonal Judo federation Zurich (Zürcher Judo Verband). The site is in German, with occasional English terms. It is a self-contained site with no external frameworks. Content is served as-is, with optional server-side rendering via PHP where needed.
 
 ## Technology
 
@@ -18,6 +18,18 @@ This is the source for the ZJV website. It is a self-contained site with no exte
 ## Folder Structure
 
 The folder structure mirrors the site structure. Each directory corresponds to a section or page of the site.
+
+The structure below reflects the original Joomla-based site. We aim to preserve the content and navigation where reasonable, but some sections may be restructured, merged, or dropped during the rebuild.
+
+| Folder | Section |
+|--------|---------|
+| `/` | Home (landing page, links to news) |
+| `/news/` | News |
+| `/kurse/` | Kurse (Courses) |
+| `/leistungssport/` | Leistungssport (Competitive sport) |
+| `/nachwuchsturnier/` | Nachwuchsturnier (Youth tournament) |
+| `/zjv/` | ZJV (About us) |
+| `/jobs/` | Jobs |
 
 ## Pending Tasks
 
@@ -46,3 +58,4 @@ See `.rsyncignore` for excluded files. A Copilot skill (`/deploy-test`) is avail
 - PHP files handle server-side logic only where HTML alone is insufficient.
 - Markdown files are used for maintainable text content and are not directly web-accessible (see `.htaccess`).
 - `.htaccess` files are used throughout the site to define access restrictions and rewrite rules per directory. They are blocked from client access at the root level.
+- **No cookies** — the site must remain cookie-free. Do not introduce analytics, tracking, marketing scripts, or anything that sets cookies. This avoids the need for a cookie consent banner under GDPR. If a technical cookie becomes unavoidable (e.g. for a server-side form), document it explicitly.
