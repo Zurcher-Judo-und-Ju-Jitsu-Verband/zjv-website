@@ -35,6 +35,23 @@ The structure below reflects the original Joomla-based site. We aim to preserve 
 
 See [TODO.md](TODO.md) for pending tasks and improvements.
 
+## Design
+
+CSS custom properties are defined in `style.css`.
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `--font-primary` | `Arial, sans-serif` | Body font |
+| `--color-primary` | `#009ddc` | ZJV brand blue, CTAs |
+| `--color-primary-hover` | `#007db0` | Button hover state |
+| `--color-background` | `#f5f5f5` | Page background |
+| `--color-text` | `#333` | Body text |
+
+### Constraints
+
+- **Responsive** — the site must render well on both desktop and mobile. Use CSS with responsive breakpoints; the viewport meta tag is set in all pages.
+- **Lazy loading** — pages with article lists (e.g. News) must load additional articles incrementally as the user scrolls, using the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API). No full page reloads for pagination.
+
 ## Deployment
 
 ### Dev/Test Environment

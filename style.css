@@ -1,0 +1,27 @@
+:root {
+    --font-primary: Arial, sans-serif;
+    --color-primary: #009ddc;
+    --color-primary-hover: #007db0;
+    --color-background: #f5f5f5;
+    --color-text: #333;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    margin: 0;
+    padding: 0;
+}
+
+/* Responsive layout */
+.container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
