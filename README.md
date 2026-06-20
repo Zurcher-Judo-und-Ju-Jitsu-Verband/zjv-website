@@ -19,6 +19,26 @@ This is the source for the ZJV website. It is a self-contained site with no exte
 
 The folder structure mirrors the site structure. Each directory corresponds to a section or page of the site.
 
+## Pending Tasks
+
+See [TODO.md](TODO.md) for pending tasks and improvements.
+
+## Deployment
+
+### Dev/Test Environment
+
+- **URL:** http://zurcherj.myhostpoint.ch/ (no TLS)
+- **Host:** `sl42.web.hostpoint.ch`
+- **User:** `zurcherj`
+
+Deploy with:
+
+```bash
+rsync -av --exclude-from=.rsyncignore . zurcherj@sl42.web.hostpoint.ch:~/www/zurcherj.myhostpoint.ch/
+```
+
+See `.rsyncignore` for excluded files. A Copilot skill (`/deploy-test`) is available to assist with this.
+
 ## Guidelines
 
 - Do not introduce external frameworks or package managers.
