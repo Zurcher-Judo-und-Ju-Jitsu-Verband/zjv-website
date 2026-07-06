@@ -125,6 +125,8 @@ Articles are written in a subset of Markdown. Only the following features are su
 
 **Bullet lists** — use `- ` (dash and space) at the start of a line. Items must begin at the first column. Only one level of nesting. Consecutive items form a single list; a blank line ends the list.
 
+**Horizontal rule** — use `---` on its own line to insert a visual divider.
+
 **Images** — use the following syntax on its own line:
 
 ```

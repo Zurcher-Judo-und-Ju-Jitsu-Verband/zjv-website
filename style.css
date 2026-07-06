@@ -63,3 +63,9 @@ figure.img-center {
     display: block;
     clear: both;
 }
+
+.zjv-article hr.article-rule {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 1.5rem 0;
+}

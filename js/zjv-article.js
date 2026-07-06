@@ -102,6 +102,14 @@ function renderBody(text, basePath, headingLevel) {
             continue;
         }
 
+        // horizontal rule: ---
+        if (line.trim() === '---') {
+            flushPara();
+            flushList();
+            blocks.push('<hr class="article-rule">');
+            continue;
+        }
+
         // blank line → paragraph break
         if (line.trim() === '') {
             flushPara();
