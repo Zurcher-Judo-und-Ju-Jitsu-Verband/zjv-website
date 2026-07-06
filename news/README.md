@@ -46,7 +46,7 @@ date: YYYY-MM-DD
 | Bold | `**text**` | — |
 | Heading 2 | `## Heading` | Use for section headings within an article |
 | List | `- item` | One level only; items must start at beginning of line |
-| Link | `[text](https://...)` | External links only; open in new tab; `➜` prefix added automatically for text links in paragraphs |
+| Link | `[text](url)` | External URLs open in new tab with `➜` prefix; local `.pdf` files open in same tab with red `PDF` badge; both added automatically |
 | Horizontal rule | `---` | Visual divider |
 | Image | see below | Extended syntax for placement and full-size link |
 
