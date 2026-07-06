@@ -112,3 +112,37 @@ Preview images embedded in articles should measure **400px on the long edge**. U
 ```bash
 convert original.jpg -resize 400x400 original_preview.jpg
 ```
+
+### Article Format
+
+Articles are written in a subset of Markdown. Only the following features are supported:
+
+**Paragraphs** — separate paragraphs with a blank line.
+
+**Bold** — wrap text in `**double asterisks**`.
+
+**Section headings** — use `##` (two hashes) for headings within an article. No other heading levels.
+
+**Bullet lists** — use `- ` (dash and space) at the start of a line. Items must begin at the first column. Only one level of nesting. Consecutive items form a single list; a blank line ends the list.
+
+**Images** — use the following syntax on its own line:
+
+```
+![Alt text](preview-filename "placement|full-filename")
+```
+
+| Part | Description |
+|------|-------------|
+| `Alt text` | Describes the image for accessibility |
+| `preview-filename` | Filename of the preview image (400px long edge), relative to the article folder |
+| `placement` | `left`, `right`, or `center` |
+| `full-filename` | Filename of the full-size image, opened when the preview is clicked |
+
+Example:
+
+```
+![Gruppenfoto](2025-09-gruppe_preview.jpg "center|2025-09-gruppe.jpg")
+```
+
+No other Markdown features are supported (no tables, no links, no heading 1, no inline code, no nested lists).
+
