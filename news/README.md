@@ -9,6 +9,7 @@ This folder contains the news section of the ZJV website.
   - `index.html` — the article page
   - `<name>.jpeg` — full-size images
   - `<name>_preview.jpeg` — preview/thumbnail images
+  - `<name>.pdf` — PDF documents (optional)
 
 ## Adding an Article
 
@@ -59,7 +60,7 @@ No other Markdown features are supported (no tables, no heading 1, no inline cod
 
 The title attribute encodes two values separated by `|`:
 - **placement**: `left`, `right`, `center`, or `inline`
-- **fullsize**: full-size image filename or external URL. Clicking the preview opens it — local images in the same tab, external URLs in a new tab.
+- **fullsize**: full-size image filename, PDF filename, or external URL. Clicking the preview opens it — local files open in the same tab, external URLs open in a new tab.
 
 | Placement | Behaviour |
 |-----------|-----------|

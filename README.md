@@ -140,7 +140,7 @@ Articles are written in a subset of Markdown. Only the following features are su
 | `Alt text` | Describes the image for accessibility |
 | `preview-filename` | Filename of the preview image (400px long edge), relative to the article folder |
 | `placement` | `left`, `right`, `center`, or `inline` |
-| `full-filename` | Full-size image or external URL, opened when the preview is clicked. Local images open in the same tab; external URLs open in a new tab. |
+| `full-filename` | Full-size image, PDF, or external URL, opened when the preview is clicked. Local files open in the same tab; external URLs open in a new tab. |
 
 Example:
 
