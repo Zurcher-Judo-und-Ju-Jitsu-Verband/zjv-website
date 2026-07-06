@@ -64,13 +64,13 @@ function renderBody(text, basePath, headingLevel) {
     const flushPara = () => {
         if (!paraLines.length) return;
         const content = paraLines.join(' ').trim();
-        if (content) blocks.push(`<p>${renderInline(content)}</p>`);
+        if (content) blocks.push(`<p>${renderInline(content, basePath)}</p>`);
         paraLines = [];
     };
 
     const flushList = () => {
         if (!listItems.length) return;
-        blocks.push(`<ul>${listItems.map(item => `<li>${renderInline(item)}</li>`).join('')}</ul>`);
+        blocks.push(`<ul>${listItems.map(item => `<li>${renderInline(item, basePath)}</li>`).join('')}</ul>`);
         listItems = [];
     };
 
@@ -124,16 +124,20 @@ function renderBody(text, basePath, headingLevel) {
     return blocks.join('\n');
 }
 
-function renderInline(text) {
+function renderInline(text, basePath) {
     // Single-pass tokenizer: links [text](url) and bold **text**
-    const pattern = /(?<!!)\[([^\]]+)\]\((https?:[^)]+)\)|\*\*([^*]+)\*\*/g;
+    const pattern = /(?<!!)\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*/g;
     const result = [];
     let last = 0;
     let m;
     while ((m = pattern.exec(text)) !== null) {
         if (m.index > last) result.push(escapeHtml(text.slice(last, m.index)));
         if (m[1] !== undefined) {
-            result.push(`<a href="${escapeHtml(m[2])}" target="_blank" rel="noopener">${escapeHtml(m[1])}</a>`);
+            const url = m[2].trim();
+            const isExternal = url.startsWith('http');
+            const resolvedUrl = isExternal ? url : `${basePath}/${url}`;
+            const attrs = isExternal ? ' target="_blank" rel="noopener"' : '';
+            result.push(`<a href="${escapeHtml(resolvedUrl)}"${attrs}>${escapeHtml(m[1])}</a>`);
         } else {
             result.push(`<strong>${escapeHtml(m[3])}</strong>`);
         }

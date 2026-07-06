@@ -86,6 +86,18 @@ figure.img-inline {
     font-size: 0.85em;
 }
 
+.zjv-article p a[href$=".pdf"]::before {
+    content: "PDF";
+    background: #c0392b;
+    color: white;
+    font-size: 0.6em;
+    font-weight: bold;
+    padding: 1px 4px;
+    border-radius: 2px;
+    margin-right: 4px;
+    vertical-align: middle;
+}
+
 .zjv-article hr.article-rule {
     border: none;
     border-top: 1px solid #ddd;
