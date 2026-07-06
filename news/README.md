@@ -45,9 +45,11 @@ date: YYYY-MM-DD
 | Bold | `**text**` | — |
 | Heading 2 | `## Heading` | Use for section headings within an article |
 | List | `- item` | One level only; items must start at beginning of line |
+| Link | `[text](https://...)` | External links only; open in new tab; `➜` prefix added automatically |
+| Horizontal rule | `---` | Visual divider |
 | Image | see below | Extended syntax for placement and full-size link |
 
-No other Markdown features are supported (no tables, no lists, no heading 1, no links, no inline code).
+No other Markdown features are supported (no tables, no heading 1, no inline code, no nested lists).
 
 ### Image Syntax
 
@@ -56,14 +58,15 @@ No other Markdown features are supported (no tables, no lists, no heading 1, no 
 ```
 
 The title attribute encodes two values separated by `|`:
-- **placement**: `left`, `right`, or `center`
+- **placement**: `left`, `right`, `center`, or `inline`
 - **fullsize**: filename of the full-size image (clicking the preview opens it)
 
-| Placement | Desktop | Mobile |
-|-----------|---------|--------|
-| `left` | floats left, text wraps right | full width, no float |
-| `right` | floats right, text wraps left | full width, no float |
-| `center` | centered block, no text wrap | full width, centered |
+| Placement | Behaviour |
+|-----------|-----------|
+| `left` | floats left, text wraps right |
+| `right` | floats right, text wraps left |
+| `center` | centered block, clears floats |
+| `inline` | flows left-to-right with adjacent inline images (gallery style) |
 
 **Example:**
 ```markdown

@@ -125,11 +125,22 @@ function renderBody(text, basePath, headingLevel) {
 }
 
 function renderInline(text) {
-    // Bold: split on **...**  then escape each segment
-    return text
-        .split(/\*\*([^*]+)\*\*/)
-        .map((part, i) => i % 2 === 0 ? escapeHtml(part) : `<strong>${escapeHtml(part)}</strong>`)
-        .join('');
+    // Single-pass tokenizer: links [text](url) and bold **text**
+    const pattern = /(?<!!)\[([^\]]+)\]\((https?:[^)]+)\)|\*\*([^*]+)\*\*/g;
+    const result = [];
+    let last = 0;
+    let m;
+    while ((m = pattern.exec(text)) !== null) {
+        if (m.index > last) result.push(escapeHtml(text.slice(last, m.index)));
+        if (m[1] !== undefined) {
+            result.push(`<a href="${escapeHtml(m[2])}" target="_blank" rel="noopener">${escapeHtml(m[1])}</a>`);
+        } else {
+            result.push(`<strong>${escapeHtml(m[3])}</strong>`);
+        }
+        last = m.index + m[0].length;
+    }
+    if (last < text.length) result.push(escapeHtml(text.slice(last)));
+    return result.join('');
 }
 
 function renderImage(alt, preview, title, basePath) {

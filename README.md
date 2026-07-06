@@ -127,6 +127,8 @@ Articles are written in a subset of Markdown. Only the following features are su
 
 **Horizontal rule** — use `---` on its own line to insert a visual divider.
 
+**Links** — use `[link text](https://...)` inline within a paragraph. Links always open in a new tab. External links are automatically prefixed with a `➜` arrow by the renderer — do not add it manually.
+
 **Images** — use the following syntax on its own line:
 
 ```
@@ -137,7 +139,7 @@ Articles are written in a subset of Markdown. Only the following features are su
 |------|-------------|
 | `Alt text` | Describes the image for accessibility |
 | `preview-filename` | Filename of the preview image (400px long edge), relative to the article folder |
-| `placement` | `left`, `right`, or `center` |
+| `placement` | `left`, `right`, `center`, or `inline` |
 | `full-filename` | Filename of the full-size image, opened when the preview is clicked |
 
 Example:
@@ -146,5 +148,5 @@ Example:
 ![Gruppenfoto](2025-09-gruppe_preview.jpg "center|2025-09-gruppe.jpg")
 ```
 
-No other Markdown features are supported (no tables, no links, no heading 1, no inline code, no nested lists).
+No other Markdown features are supported (no tables, no heading 1, no inline code, no nested lists).
 

@@ -64,6 +64,28 @@ figure.img-center {
     clear: both;
 }
 
+figure.img-inline {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0.25rem;
+    max-width: 45%;
+}
+
+/* Links in articles */
+.zjv-article a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.zjv-article a:hover {
+    text-decoration: underline;
+}
+
+.zjv-article a[href^="http"]::before {
+    content: "➜ ";
+    font-size: 0.85em;
+}
+
 .zjv-article hr.article-rule {
     border: none;
     border-top: 1px solid #ddd;
