@@ -14,6 +14,7 @@ Each section of the site has its own `README.md` with details specific to that s
 | Section | README |
 |---------|--------|
 | News | [news/README.md](news/README.md) |
+| Kurse | [kurse/README.md](kurse/README.md) |
 | JavaScript | [js/README.md](js/README.md) |
 
 ## Overview
