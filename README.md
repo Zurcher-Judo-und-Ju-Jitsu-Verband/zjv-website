@@ -66,6 +66,18 @@ CSS custom properties are defined in `style.css`.
 - **Responsive** — the site must render well on both desktop and mobile. Use CSS with responsive breakpoints; the viewport meta tag is set in all pages.
 - **Lazy loading** — pages with article lists (e.g. News) must load additional articles incrementally as the user scrolls, using the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API). No full page reloads for pagination.
 
+## Coding
+
+### Cache Busting
+
+All `<link>` and `<script>` tags referencing `style.css` or JS files include a `?v=<timestamp>` query parameter to force browsers to fetch updated versions. When modifying a CSS or JS file, update the version parameter in all HTML files that reference it:
+
+```bash
+date +%s
+```
+
+Replace the existing `?v=...` value with the new timestamp.
+
 ## Deployment
 
 ### Dev/Test Environment

@@ -25,3 +25,41 @@ body {
     margin: 0 auto;
     padding: 0 1rem;
 }
+
+/* Article images */
+figure {
+    margin: 0;
+}
+
+figure img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+figure.img-left {
+    float: left;
+    margin: 0 1.5rem 1rem 0;
+    max-width: 40%;
+}
+
+figure.img-right {
+    float: right;
+    margin: 0 0 1rem 1.5rem;
+    max-width: 40%;
+}
+
+figure.img-center {
+    clear: both;
+    margin: 1rem 0;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Clear floats after article content */
+.zjv-article::after {
+    content: '';
+    display: block;
+    clear: both;
+}
