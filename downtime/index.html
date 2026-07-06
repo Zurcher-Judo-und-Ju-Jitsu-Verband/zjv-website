@@ -47,6 +47,25 @@
             width: 280px;
             height: auto;
         }
+        .video-player {
+            width: 100%;
+            max-width: 560px;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .video-player-frame {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+        }
+        .video-player-frame iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
         .downtime-videos .caption {
             padding: 0.4rem 0.6rem;
             font-size: 0.85rem;
@@ -64,18 +83,65 @@
     <p class="downtime-message">Die Seite wird zur Zeit überarbeitet.</p>
     <h2>Derweil auf YouTube</h2>
     <div class="downtime-videos">
-        <a href="https://www.youtube.com/watch?v=Mb9jUFvy8D8" title="Judo Club Wetzikon Liga A 2013">
+        <a href="https://www.youtube.com/watch?v=Mb9jUFvy8D8" data-ytid="Mb9jUFvy8D8" title="Judo Club Wetzikon Liga A 2013">
             <img src="/downtime/judo-club-wetzikon-liga-a-2013.jpg" alt="Judo Club Wetzikon Liga A 2013">
             <span class="caption">Judo Club Wetzikon – Liga A 2013</span>
         </a>
-        <a href="https://www.youtube.com/watch?v=qXHXgLDEQEw" title="Samurai Spirit – Judo">
+        <a href="https://www.youtube.com/watch?v=qXHXgLDEQEw" data-ytid="qXHXgLDEQEw" title="Samurai Spirit – Judo">
             <img src="/downtime/samurai-spirit-judo.jpg" alt="Samurai Spirit – Judo">
             <span class="caption">Samurai Spirit – Judo</span>
         </a>
-        <a href="https://www.youtube.com/watch?v=g-LlKrFRcUw" title="Top 20 Ippons – World Judo Tour 2016">
+        <a href="https://www.youtube.com/watch?v=g-LlKrFRcUw" data-ytid="g-LlKrFRcUw" title="Top 20 Ippons – World Judo Tour 2016">
             <img src="/downtime/top-20-ippons-world-judo-tour-2016.jpg" alt="Top 20 Ippons – World Judo Tour 2016">
             <span class="caption">Top 20 Ippons – World Judo Tour 2016</span>
         </a>
     </div>
+    <script>
+        var tilesHTML = document.querySelector('.downtime-videos').outerHTML;
+
+        function showPlayer(id, caption) {
+            var player = document.createElement('div');
+            player.className = 'video-player';
+            player.innerHTML =
+                '<div class="video-player-frame">'
+                + '<iframe src="https://www.youtube.com/embed/' + id + '?autoplay=1"'
+                + ' allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"'
+                + ' allowfullscreen></iframe>'
+                + '</div>'
+                + caption
+                + '<a href="#" onclick="history.back();return false;" style="display:block;text-align:center;margin-top:0.5rem;font-size:0.85rem;">← Zurück</a>';
+            document.querySelector('.downtime-videos, .video-player').replaceWith(player);
+        }
+
+        function showTiles() {
+            var tmp = document.createElement('div');
+            tmp.innerHTML = tilesHTML;
+            var tiles = tmp.firstChild;
+            document.querySelector('.downtime-videos, .video-player').replaceWith(tiles);
+            attachTileHandlers();
+        }
+
+        function attachTileHandlers() {
+            document.querySelectorAll('.downtime-videos a[data-ytid]').forEach(function(a) {
+                a.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var id = this.dataset.ytid;
+                    var caption = this.querySelector('.caption').outerHTML;
+                    history.pushState({ytid: id, caption: caption}, '');
+                    showPlayer(id, caption);
+                });
+            });
+        }
+
+        attachTileHandlers();
+
+        window.addEventListener('popstate', function(e) {
+            if (e.state && e.state.ytid) {
+                showPlayer(e.state.ytid, e.state.caption);
+            } else {
+                showTiles();
+            }
+        });
+    </script>
 </body>
 </html>
