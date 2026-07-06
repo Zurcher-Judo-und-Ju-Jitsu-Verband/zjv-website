@@ -102,3 +102,13 @@ See `.rsyncignore` for excluded files. A Copilot skill (`/deploy-test`) is avail
 - Markdown files are used for maintainable text content and are not directly web-accessible (see `.htaccess`).
 - `.htaccess` files are used throughout the site to define access restrictions and rewrite rules per directory. They are blocked from client access at the root level.
 - **No cookies** — the site must remain cookie-free. Do not introduce analytics, tracking, marketing scripts, or anything that sets cookies. This avoids the need for a cookie consent banner under GDPR. If a technical cookie becomes unavoidable (e.g. for a server-side form), document it explicitly.
+
+## Editorial Content
+
+### Article Preview Images
+
+Preview images embedded in articles should measure **400px on the long edge**. Use the full-size image as source:
+
+```bash
+convert original.jpg -resize 400x400 original_preview.jpg
+```
