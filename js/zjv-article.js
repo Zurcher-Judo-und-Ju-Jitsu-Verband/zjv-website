@@ -146,7 +146,9 @@ function renderInline(text) {
 function renderImage(alt, preview, title, basePath) {
     const [placement, fullsize] = title.split('|').map(s => s.trim());
     const previewSrc = `${basePath}/${preview}`;
-    const fullSrc   = fullsize ? `${basePath}/${fullsize}` : previewSrc;
+    const fullSrc = fullsize
+        ? (fullsize.startsWith('http') ? fullsize : `${basePath}/${fullsize}`)
+        : previewSrc;
     const cssClass  = `img-${placement || 'center'}`;
     return `<figure class="${cssClass}">` +
         `<a href="${fullSrc}" target="_blank" rel="noopener">` +

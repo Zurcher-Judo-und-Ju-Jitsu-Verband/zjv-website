@@ -81,7 +81,7 @@ figure.img-inline {
     text-decoration: underline;
 }
 
-.zjv-article a[href^="http"]::before {
+.zjv-article p a[href^="http"]::before {
     content: "➜ ";
     font-size: 0.85em;
 }
