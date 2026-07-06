@@ -57,7 +57,7 @@ CSS custom properties are defined in `style.css`.
 |-------|-------|-------|
 | `--font-primary` | `Arial, sans-serif` | Body font |
 | `--color-primary` | `#009ddc` | ZJV brand blue, CTAs |
-| `--color-primary-hover` | `#007db0` | Button hover state |
+| `--color-primary-hover` | `#007db0` | Darker brand blue, used on hover |
 | `--color-background` | `#f5f5f5` | Page background |
 | `--color-text` | `#333` | Body text |
 

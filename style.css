@@ -78,6 +78,7 @@ figure.img-inline {
 }
 
 .zjv-article a:hover {
+    color: var(--color-primary-hover);
     text-decoration: underline;
 }
 
