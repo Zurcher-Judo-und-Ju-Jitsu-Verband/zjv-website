@@ -2,6 +2,11 @@
 
 Maintainer documentation for the ZJV website.
 
+## Project
+
+- **Organisation:** [Zurcher-Judo-und-Ju-Jitsu-Verband](https://github.com/Zurcher-Judo-und-Ju-Jitsu-Verband) on GitHub
+- **Started by:** [@defaultbranch](https://github.com/defaultbranch)
+
 ## Documentation
 
 Each section of the site has its own `README.md` with details specific to that section. Keep this top-level README lean — put section-specific information in the appropriate subfolder README instead.
@@ -9,6 +14,7 @@ Each section of the site has its own `README.md` with details specific to that s
 | Section | README |
 |---------|--------|
 | News | [news/README.md](news/README.md) |
+| JavaScript | [js/README.md](js/README.md) |
 
 ## Overview
 
