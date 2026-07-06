@@ -150,8 +150,10 @@ function renderImage(alt, preview, title, basePath) {
         ? (fullsize.startsWith('http') ? fullsize : `${basePath}/${fullsize}`)
         : previewSrc;
     const cssClass  = `img-${placement || 'center'}`;
+    const isExternal = fullSrc.startsWith('http');
+    const linkAttrs  = isExternal ? ' target="_blank" rel="noopener"' : '';
     return `<figure class="${cssClass}">` +
-        `<a href="${fullSrc}" target="_blank" rel="noopener">` +
+        `<a href="${fullSrc}"${linkAttrs}>` +
         `<img src="${previewSrc}" alt="${escapeHtml(alt)}" loading="lazy">` +
         `</a></figure>`;
 }

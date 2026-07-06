@@ -59,7 +59,7 @@ No other Markdown features are supported (no tables, no heading 1, no inline cod
 
 The title attribute encodes two values separated by `|`:
 - **placement**: `left`, `right`, `center`, or `inline`
-- **fullsize**: filename of the full-size image (clicking the preview opens it)
+- **fullsize**: full-size image filename or external URL. Clicking the preview opens it — local images in the same tab, external URLs in a new tab.
 
 | Placement | Behaviour |
 |-----------|-----------|
