@@ -45,6 +45,7 @@ The structure below reflects the original Joomla-based site. We aim to preserve 
 | `/nachwuchsturnier/` | Nachwuchsturnier (Youth tournament) |
 | `/zjv/` | ZJV (About us) |
 | `/jobs/` | Jobs |
+| `/downtime/` | Downtime page (shown during maintenance) |
 
 ## Pending Tasks
 
