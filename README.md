@@ -127,7 +127,7 @@ Articles are written in a subset of Markdown. Only the following features are su
 
 **Horizontal rule** — use `---` on its own line to insert a visual divider.
 
-**Links** — use `[link text](https://...)` inline within a paragraph. Links always open in a new tab. External links are automatically prefixed with a `➜` arrow by the renderer — do not add it manually.
+**Links** — use `[link text](https://...)` inline within a paragraph. Links always open in a new tab. Text links in paragraphs are automatically prefixed with a `➜` arrow by the renderer — do not add it manually.
 
 **Images** — use the following syntax on its own line:
 
