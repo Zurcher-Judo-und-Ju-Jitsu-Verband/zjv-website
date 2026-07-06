@@ -24,10 +24,50 @@
             color: var(--color-text);
             text-align: center;
         }
+        .downtime-videos {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            padding: 0 1rem;
+        }
+        .downtime-videos a {
+            display: block;
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+        }
+        .downtime-videos a:hover {
+            transform: scale(1.03);
+        }
+        .downtime-videos img {
+            display: block;
+            width: 280px;
+            height: auto;
+        }
+        .downtime-videos .caption {
+            padding: 0.4rem 0.6rem;
+            font-size: 0.85rem;
+            color: var(--color-text);
+            text-align: center;
+            background: #fff;
+        }
+        h2 {
+            margin-bottom: 0;
+        }
     </style>
 </head>
 <body>
     <img class="downtime-logo" src="/zjv-logo.png" alt="ZJV Logo">
     <p class="downtime-message">Die Seite wird zur Zeit überarbeitet.</p>
+    <h2>Derweil auf YouTube</h2>
+    <div class="downtime-videos">
+        <a href="https://www.youtube.com/watch?v=Mb9jUFvy8D8" target="_blank" rel="noopener" title="Judo Club Wetzikon Liga A 2013">
+            <img src="/downtime/judo-club-wetzikon-liga-a-2013.jpg" alt="Judo Club Wetzikon Liga A 2013">
+            <span class="caption">Judo Club Wetzikon – Liga A 2013</span>
+        </a>
+    </div>
 </body>
 </html>
