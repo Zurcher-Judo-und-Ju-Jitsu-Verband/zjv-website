@@ -59,6 +59,7 @@ function renderBody(text, basePath, headingLevel) {
     const lines = text.split(/\r?\n/);
     const blocks = [];
     let paraLines = [];
+    let listItems = [];
 
     const flushPara = () => {
         if (!paraLines.length) return;
@@ -67,11 +68,18 @@ function renderBody(text, basePath, headingLevel) {
         paraLines = [];
     };
 
+    const flushList = () => {
+        if (!listItems.length) return;
+        blocks.push(`<ul>${listItems.map(item => `<li>${renderInline(item)}</li>`).join('')}</ul>`);
+        listItems = [];
+    };
+
     for (const line of lines) {
         // ## heading
         const h2 = line.match(/^##\s+(.*)/);
         if (h2) {
             flushPara();
+            flushList();
             const tag = `h${Math.min(6, headingLevel + 1)}`;
             blocks.push(`<${tag} class="article-heading">${escapeHtml(h2[1].trim())}</${tag}>`);
             continue;
@@ -81,18 +89,29 @@ function renderBody(text, basePath, headingLevel) {
         const img = line.trim().match(/^!\[([^\]]*)\]\((\S+)\s+"([^"]+)"\)\s*$/);
         if (img) {
             flushPara();
+            flushList();
             blocks.push(renderImage(img[1], img[2], img[3], basePath));
+            continue;
+        }
+
+        // list item: - text
+        const li = line.match(/^- (.*)/);
+        if (li) {
+            flushPara();
+            listItems.push(li[1]);
             continue;
         }
 
         // blank line → paragraph break
         if (line.trim() === '') {
             flushPara();
+            flushList();
         } else {
             paraLines.push(line);
         }
     }
     flushPara();
+    flushList();
 
     return blocks.join('\n');
 }

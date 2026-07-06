@@ -44,6 +44,7 @@ date: YYYY-MM-DD
 | Paragraph | blank line between text | — |
 | Bold | `**text**` | — |
 | Heading 2 | `## Heading` | Use for section headings within an article |
+| List | `- item` | One level only; items must start at beginning of line |
 | Image | see below | Extended syntax for placement and full-size link |
 
 No other Markdown features are supported (no tables, no lists, no heading 1, no links, no inline code).
