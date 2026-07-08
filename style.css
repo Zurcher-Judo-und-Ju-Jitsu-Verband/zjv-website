@@ -26,6 +26,24 @@ body {
     padding: 0 1rem;
 }
 
+/* Site layout shell */
+zjv-main {
+    display: block;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Article framing */
+zjv-article {
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    background: #fff;
+}
+
 /* Article images */
 figure {
     margin: 0;
