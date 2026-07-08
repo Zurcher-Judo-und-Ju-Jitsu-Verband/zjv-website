@@ -37,19 +37,19 @@ figure img {
     display: block;
 }
 
-figure.img-left {
+figure.zjv-md-img-left {
     float: left;
     margin: 0 1.5rem 1rem 0;
     max-width: 40%;
 }
 
-figure.img-right {
+figure.zjv-md-img-right {
     float: right;
     margin: 0 0 1rem 1.5rem;
     max-width: 40%;
 }
 
-figure.img-center {
+figure.zjv-md-img-center {
     clear: both;
     margin: 1rem 0;
     max-width: 100%;
@@ -64,7 +64,7 @@ figure.img-center {
     clear: both;
 }
 
-figure.img-inline {
+figure.zjv-md-img-inline {
     display: inline-block;
     vertical-align: top;
     margin: 0.25rem;
@@ -99,7 +99,7 @@ figure.img-inline {
     vertical-align: middle;
 }
 
-.zjv-article hr.article-rule {
+.zjv-article hr {
     border: none;
     border-top: 1px solid #ddd;
     margin: 1.5rem 0;

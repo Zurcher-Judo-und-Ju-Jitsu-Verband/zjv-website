@@ -153,7 +153,7 @@ function renderImage(alt, preview, title, basePath) {
     const fullSrc = fullsize
         ? (fullsize.startsWith('http') ? fullsize : `${basePath}/${fullsize}`)
         : previewSrc;
-    const cssClass  = `img-${placement || 'center'}`;
+    const cssClass  = `zjv-md-img-${placement || 'center'}`;
     const isExternal = fullSrc.startsWith('http');
     const linkAttrs  = isExternal ? ' target="_blank" rel="noopener"' : '';
     return `<figure class="${cssClass}">` +
