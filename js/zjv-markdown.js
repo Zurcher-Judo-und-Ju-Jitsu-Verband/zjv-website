@@ -19,6 +19,7 @@ export function renderBody(text, basePath, headingLevel) {
     const blocks = [];
     let paraLines = [];
     let listItems = [];
+    let orderedItems = [];
 
     const flushPara = () => {
         if (!paraLines.length) return;
@@ -33,12 +34,19 @@ export function renderBody(text, basePath, headingLevel) {
         listItems = [];
     };
 
+    const flushOrderedList = () => {
+        if (!orderedItems.length) return;
+        blocks.push(`<ol>${orderedItems.map(item => `<li>${renderInline(item, basePath)}</li>`).join('')}</ol>`);
+        orderedItems = [];
+    };
+
     for (const line of lines) {
         // ## heading
         const h2 = line.match(/^##\s+(.*)/);
         if (h2) {
             flushPara();
             flushList();
+            flushOrderedList();
             const tag = `h${Math.min(6, headingLevel + 1)}`;
             blocks.push(`<${tag}>${escapeHtml(h2[1].trim())}</${tag}>`);
             continue;
@@ -49,7 +57,17 @@ export function renderBody(text, basePath, headingLevel) {
         if (img) {
             flushPara();
             flushList();
+            flushOrderedList();
             blocks.push(renderImage(img[1], img[2], img[3], basePath));
+            continue;
+        }
+
+        // ordered list item: 1. text
+        const oli = line.match(/^\d+\. (.*)/);
+        if (oli) {
+            flushPara();
+            flushList();
+            orderedItems.push(oli[1]);
             continue;
         }
 
@@ -57,6 +75,7 @@ export function renderBody(text, basePath, headingLevel) {
         const li = line.match(/^- (.*)/);
         if (li) {
             flushPara();
+            flushOrderedList();
             listItems.push(li[1]);
             continue;
         }
@@ -65,6 +84,7 @@ export function renderBody(text, basePath, headingLevel) {
         if (line.trim() === '---') {
             flushPara();
             flushList();
+            flushOrderedList();
             blocks.push('<hr>');
             continue;
         }
@@ -73,12 +93,14 @@ export function renderBody(text, basePath, headingLevel) {
         if (line.trim() === '') {
             flushPara();
             flushList();
+            flushOrderedList();
         } else {
             paraLines.push(line);
         }
     }
     flushPara();
     flushList();
+    flushOrderedList();
 
     return blocks.join('\n');
 }
