@@ -6,8 +6,10 @@ Client-side JavaScript for the ZJV website. All files are plain ES modules, no b
 
 | File | Element | Description |
 |------|---------|-------------|
+| `zjv-markdown.js` | — | Pure markdown-to-HTML renderer (no custom element; imported by `zjv-article.js`) |
 | `zjv-article.js` | `<zjv-article>` | Fetches and renders a single article from its `article.md` |
-| `zjv-articles.js` | `<zjv-articles>` | Discovers and renders a list of articles from a JSONL index, with lazy loading and query param routing |
+| `zjv-articles.js` | `<zjv-articles>`, `<zjv-source>` | Collects one or more article sources, merges by date, and renders with lazy loading |
+| `zjv-yt-gallery.js` | `<zjv-yt-gallery>`, `<zjv-yt-tile>` | YouTube video tile gallery with click-to-embed |
 
 ## Usage
 
@@ -22,6 +24,8 @@ Include the relevant script(s) in any page that uses the custom elements:
 
 ## zjv-article
 
+Fetches and renders a single article from a folder containing `article.md`.
+
 ```html
 <zjv-article src="news/2026-06-08_carmen-brussig-astana-2026" heading-level="1"></zjv-article>
 ```
@@ -29,21 +33,65 @@ Include the relevant script(s) in any page that uses the custom elements:
 | Attribute | Required | Default | Description |
 |-----------|----------|---------|-------------|
 | `src` | yes | — | Path to the article folder (relative to site root) |
-| `heading-level` | no | `1` | Base heading level: `1` for standalone, `2` when embedded in a listing |
+| `heading-level` | no | `1` | Base heading level for the article title |
 
 ## zjv-articles
 
+Collects sources, merges all articles by date (newest first), and renders them with lazy loading.
+
+Sources are declared as child elements: `<zjv-source>` for a JSONL manifest, or `<zjv-article>` for a singleton. The `heading-level` on `<zjv-articles>` is passed to all rendered articles.
+
 ```html
-<zjv-articles from="news/articles.jsonl" max="3"></zjv-articles>
+<zjv-articles heading-level="1">
+  <zjv-source src="news"></zjv-source>
+</zjv-articles>
 ```
+
+```html
+<zjv-articles heading-level="1">
+  <zjv-source src="news"></zjv-source>
+  <zjv-source src="kurse"></zjv-source>
+</zjv-articles>
+```
+
+```html
+<zjv-articles heading-level="1">
+  <zjv-source src="news"></zjv-source>
+  <zjv-article src="kurse/2026-01-01_confidence-coach"></zjv-article>
+</zjv-articles>
+```
+
+### zjv-articles attributes
 
 | Attribute | Required | Default | Description |
 |-----------|----------|---------|-------------|
-| `from` | yes | — | Path to the JSONL index file listing article folder names |
-| `max` | no | unlimited | Maximum number of articles to render |
+| `heading-level` | no | `1` | Heading level passed to all rendered `<zjv-article>` elements |
 
-Handles:
-- Lazy loading via Intersection Observer (articles load as user scrolls)
-- Query param routing: `?article=<folder-name>` renders only that article at `heading-level="1"`
-- `not-before` / `not-after` frontmatter date filtering
-- Automatically sets `heading-level="2"` on all child `<zjv-article>` elements
+### zjv-source attributes
+
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| `src` | yes | Section name (e.g. `news`, `kurse`); the element fetches `/{src}/articles.jsonl` |
+
+### articles.jsonl format
+
+One JSON object per line, ordered newest first. Only `src` is required; other fields are optional modifiers.
+
+```jsonl
+{"src": "2026-06-08_carmen-brussig-astana-2026"}
+{"src": "2026-02-16_gebrauchte-judo-matten", "not-after": "2026-09-01"}
+{"src": "2025-12-22_carmen-brussig-sao-paulo-2025"}
+```
+
+| Field | Description |
+|-------|-------------|
+| `src` | Article folder name (without section prefix) |
+| `not-before` | ISO date — article is hidden before this date |
+| `not-after` | ISO date — article is hidden after this date |
+
+### Behaviour
+
+- Articles load lazily via Intersection Observer as the user scrolls
+- `not-before` / `not-after` filtering is applied before rendering
+- Query param `?article=<folder-name>` renders only that article at `heading-level="1"`
+
