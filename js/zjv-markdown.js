@@ -1,6 +1,10 @@
 // Markdown renderer (subset) for ZJV articles.
 // Accepts a markdown body string (frontmatter already stripped) and returns HTML.
 //
+// CONTRACT: this module emits only semantic HTML and zjv-md-* CSS classes.
+// Never use component-specific classes (e.g. zjv-article, article-*).
+// Consumers are responsible for their own styling via scoped selectors.
+//
 // Supported syntax:
 //   ## heading          → <h{n}>
 //   - item              → <ul><li>
