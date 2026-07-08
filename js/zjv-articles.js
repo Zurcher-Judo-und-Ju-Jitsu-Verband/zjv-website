@@ -2,7 +2,8 @@
 //
 // <zjv-articles> collects <zjv-source> children, fetches their articles.jsonl
 // manifests in parallel, merges all entries by date (newest first), applies
-// not-before / not-after filtering, and renders a <zjv-article> per entry.
+// not-before / not-after filtering, and renders a <zjv-article> per entry
+// using lazy loading via Intersection Observer.
 //
 // Usage:
 //   <zjv-articles heading-level="1">
@@ -28,6 +29,8 @@ class ZjvArticles extends HTMLElement {
 
         if (!sources.length) return;
 
+        this.innerHTML = '<p class="articles-loading">Laden…</p>';
+
         // Fetch all manifests in parallel
         const manifests = await Promise.all(sources.map(src => this._fetchManifest(src)));
 
@@ -46,32 +49,69 @@ class ZjvArticles extends HTMLElement {
                 return dateB.localeCompare(dateA);
             });
 
-        // Replace children with rendered articles
         this.innerHTML = '';
-        for (const entry of entries) {
-            const article = document.createElement('zjv-article');
-            article.setAttribute('src', entry.fullSrc);
-            article.setAttribute('heading-level', String(headingLevel));
-            this.appendChild(article);
-        }
+
+        if (!entries.length) return;
+
+        // Lazy-load: append one article at a time, observe the last one,
+        // append the next when it nears the viewport.
+        let index = 0;
+        const observer = new IntersectionObserver((entries_io) => {
+            for (const io of entries_io) {
+                if (!io.isIntersecting) continue;
+                observer.unobserve(io.target);
+                if (index < entries.length) this._appendNext(entries, index++, observer, headingLevel);
+            }
+        }, { rootMargin: '300px' });
+
+        this._appendNext(entries, index++, observer, headingLevel);
+    }
+
+    _appendNext(entries, i, observer, headingLevel) {
+        const article = document.createElement('zjv-article');
+        article.setAttribute('src', entries[i].fullSrc);
+        article.setAttribute('heading-level', String(headingLevel));
+        this.appendChild(article);
+        if (i + 1 < entries.length) observer.observe(article);
     }
 
     async _fetchManifest(src) {
+        let text;
         try {
             const res = await fetch(`/${src}/articles.jsonl`);
-            if (!res.ok) return [];
-            const text = await res.text();
-            return text.trim().split('\n')
-                .filter(line => line.trim())
-                .map(line => {
-                    const entry = JSON.parse(line);
-                    return { ...entry, fullSrc: `${src}/${entry.src}` };
-                });
-        } catch {
+            if (!res.ok) {
+                console.warn(`zjv-articles: failed to load /${src}/articles.jsonl (HTTP ${res.status})`);
+                this._appendError(`Inhalte konnten nicht geladen werden (${src}).`);
+                return [];
+            }
+            text = await res.text();
+        } catch (err) {
+            console.warn(`zjv-articles: network error loading /${src}/articles.jsonl`, err);
+            this._appendError(`Inhalte konnten nicht geladen werden (${src}).`);
             return [];
         }
+
+        return text.trim().split('\n')
+            .filter(line => line.trim())
+            .flatMap(line => {
+                try {
+                    const entry = JSON.parse(line);
+                    return [{ ...entry, fullSrc: `${src}/${entry.src}` }];
+                } catch {
+                    console.warn(`zjv-articles: skipping malformed line in ${src}/articles.jsonl:`, line);
+                    return [];
+                }
+            });
+    }
+
+    _appendError(message) {
+        const p = document.createElement('p');
+        p.className = 'articles-error';
+        p.textContent = message;
+        this.appendChild(p);
     }
 }
 
 customElements.define('zjv-source', ZjvSource);
 customElements.define('zjv-articles', ZjvArticles);
+
