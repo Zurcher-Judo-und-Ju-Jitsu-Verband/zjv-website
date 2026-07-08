@@ -1,8 +1,3 @@
-RewriteEngine On
-RewriteCond %{REQUEST_URI} !^/downtime/
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^ /downtime/index.html [L]
-
 <FilesMatch "^(\.htaccess|README\.md|TODO\.md)$">
     Require all denied
 </FilesMatch>
