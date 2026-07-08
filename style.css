@@ -64,6 +64,11 @@ figure.zjv-md-img-center {
     clear: both;
 }
 
+.article-title {
+    font-size: 2rem;
+    margin: 0 0 1rem 0;
+}
+
 figure.zjv-md-img-inline {
     display: inline-block;
     vertical-align: top;
