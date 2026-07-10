@@ -1,0 +1,18 @@
+{
+  "$schema": "https://zjv.ch/zjv/personen/personen.schema.json",
+  "personen": [
+  { "rolle": "Präsidentin", "name": "Mirjam Senn-Schwaller", "email": "mirjam.senn@zjv.ch" },
+  { "rolle": "Vize-Präsident", "name": "Thomas Wehrli", "email": "thomas.wehrli@zjv.ch" },
+  { "rolle": "Ressort Ju-Jitsu", "name": "Rudi Kaufmann", "email": "rudi.kaufmann@zjv.ch" },
+  { "rolle": "Ressort Judo", "name": "Werner Schuler", "email": "werner.schuler@zjv.ch" },
+  { "rolle": "Ressort Selbstverteidigung für Frauen und Mädchen", "name": "Katharina Eisenring", "email": "katharina.eisenring@zjv.ch" },
+  { "rolle": "Kassier", "name": "Ramona Köhler", "email": "ramona.koehler@zjv.ch" },
+  { "rolle": "Aktuar", "name": "Michel Ell", "email": "michel.ell@zjv.ch" },
+  { "rolle": "Webmaster", "name": "Christian Fuchs", "email": "christian.fuchs@zjv.ch" },
+  { "rolle": "Kantonalkader", "name": "Werner Schuler", "email": "werner.schuler@zjv.ch" },
+  { "rolle": "Administrator Kantonalkader", "name": "Norbert Vetterli", "email": "norbert@vetterli-herrmann.ch" },
+  { "rolle": "Technische Judo Kurse", "name": "Werner Schuler", "email": "werner.schuler@zjv.ch" },
+  { "rolle": "Zürcher Nachwuchsturnier", "name": "Werner Schuler", "email": "werner.schuler@zjv.ch" },
+  { "rolle": "Leistungszentrum", "name": "David Sigg", "email": "david.a.sigg@gmail.com" }
+  ]
+}

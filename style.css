@@ -31,7 +31,7 @@ zjv-main {
     display: block;
     max-width: 720px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 1.5rem 1rem;
 }
 
 /* Article framing */
@@ -126,4 +126,29 @@ figure.zjv-md-img-inline {
     border: none;
     border-top: 1px solid #ddd;
     margin: 1.5rem 0;
+}
+
+/* Personen list */
+.personen-item {
+    margin: 0 0 1.25rem 0;
+    line-height: 1.5;
+}
+
+.personen-rolle {
+    display: block;
+}
+
+.personen-name {
+    display: block;
+    color: var(--color-text);
+}
+
+a.personen-email {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+a.personen-email:hover {
+    color: var(--color-primary-hover);
+    text-decoration: underline;
 }
