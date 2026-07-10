@@ -67,6 +67,7 @@ CSS custom properties are defined in `style.css`.
 
 - **Responsive** — the site must render well on both desktop and mobile. Use CSS with responsive breakpoints; the viewport meta tag is set in all pages.
 - **Lazy loading** — pages with article lists (e.g. News) must load additional articles incrementally as the user scrolls, using the [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API). No full page reloads for pagination.
+- **Central CSS** — all pages share `style.css` as the single source of styling. Component-level or per-page CSS overrides are discouraged; add rules to `style.css` instead. Private CSS in a component is acceptable only for genuinely one-off cases that do not belong in the shared stylesheet.
 
 ## Coding
 
