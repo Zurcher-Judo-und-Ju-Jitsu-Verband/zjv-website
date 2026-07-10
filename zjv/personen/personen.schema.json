@@ -3,8 +3,11 @@
   "$id": "https://zjv.ch/zjv/personen/personen.schema.json",
   "title": "ZJV Personen",
   "description": "Liste der Verantwortlichen des Zürcher Judo & Ju-Jitsu Verbands ZJV.",
-  "type": "array",
-  "items": {
+  "type": "object",
+  "properties": {
+    "personen": {
+      "type": "array",
+      "items": {
     "type": "object",
     "properties": {
       "rolle": {
@@ -22,6 +25,10 @@
       }
     },
     "required": ["rolle", "name", "email"],
-    "additionalProperties": false
-  }
+      "additionalProperties": false
+      }
+    }
+  },
+  "required": ["personen"],
+  "additionalProperties": false
 }
