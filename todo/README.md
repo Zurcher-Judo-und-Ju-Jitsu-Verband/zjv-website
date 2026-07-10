@@ -9,10 +9,13 @@ Based on the original site structure. Sections may be restructured or dropped du
 - [ ] Define overall page layout (header, navigation, footer)
 - [ ] Create shared CSS and JS assets
 - [ ] Home page (`/index.html`) — landing page
-- [ ] News (`/news/`)
-- [ ] Kurse (`/kurse/`)
 - [ ] Leistungssport (`/leistungssport/`)
 - [ ] Nachwuchsturnier (`/nachwuchsturnier/`)
 - [ ] ZJV / About (`/zjv/`)
 - [ ] Jobs (`/jobs/`)
+
+## Done
+
+- [x] News → [`/news/`](../news/)
+- [x] Kurse → [`/kurse/`](../kurse/)
 
