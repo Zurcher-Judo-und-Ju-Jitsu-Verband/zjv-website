@@ -1,6 +1,8 @@
 // Custom element: <zjv-personen src="/zjv/personen/personen.json">
 // Fetches the personen.json data file and renders a contact list.
 
+import { escapeHtml } from '/js/zjv-utils.js?v=1783711852';
+
 class ZjvPersonen extends HTMLElement {
     async connectedCallback() {
         const src = this.getAttribute('src');
@@ -24,10 +26,6 @@ class ZjvPersonen extends HTMLElement {
                 <a class="personen-email" href="mailto:${escapeHtml(p.email)}">${escapeHtml(p.email)}</a>
             </p>`).join('');
     }
-}
-
-function escapeHtml(str) {
-    return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
 customElements.define('zjv-personen', ZjvPersonen);

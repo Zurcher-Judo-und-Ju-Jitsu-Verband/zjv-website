@@ -3,6 +3,9 @@
 //
 // CONTRACT: this module emits only semantic HTML and zjv-md-* CSS classes.
 // Never use component-specific classes (e.g. zjv-article, article-*).
+
+import { escapeHtml } from '/js/zjv-utils.js?v=1783711852';
+export { escapeHtml };
 // Consumers are responsible for their own styling via scoped selectors.
 //
 // Supported syntax:
@@ -143,10 +146,4 @@ function renderImage(alt, preview, title, basePath) {
         `</a></figure>`;
 }
 
-export function escapeHtml(str) {
-    return String(str)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;');
-}
+
