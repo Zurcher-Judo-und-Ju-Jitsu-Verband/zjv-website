@@ -84,7 +84,16 @@ figure.zjv-md-img-center {
 
 .article-title {
     font-size: 2rem;
-    margin: 0 0 1rem 0;
+    margin: 0 0 0.25rem 0;
+}
+
+.article-date {
+    display: block;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: #999;
+    margin: 0;
+    text-align: right;
 }
 
 figure.zjv-md-img-inline {

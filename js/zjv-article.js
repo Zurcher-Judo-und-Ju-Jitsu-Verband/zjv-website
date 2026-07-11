@@ -34,9 +34,20 @@ class ZjvArticle extends HTMLElement {
         const titleHtml = meta.title
             ? `<${titleTag} class="article-title">${escapeHtml(meta.title)}</${titleTag}>`
             : '';
+        const dateHtml = meta.date
+            ? `<time class="article-date" datetime="${escapeHtml(meta.date)}">veröffentlicht ${formatDate(meta.date)}</time>`
+            : '';
 
-        this.innerHTML = `<article class="zjv-article">${titleHtml}${renderBody(body, basePath, headingLevel)}</article>`;
+        this.innerHTML = `<article class="zjv-article">${titleHtml}${renderBody(body, basePath, headingLevel)}${dateHtml}</article>`;
     }
+}
+
+// --- Date formatting ---
+
+function formatDate(dateStr) {
+    const d = new Date(dateStr + 'T00:00:00');
+    if (isNaN(d)) return escapeHtml(dateStr);
+    return d.toLocaleDateString('de-CH', { day: 'numeric', month: 'long', year: 'numeric' });
 }
 
 // --- Frontmatter ---
