@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://zjv.ch/nav.schema.json",
+  "title": "ZJV Navigation",
+  "description": "Site navigation structure for zjv.ch.",
+  "type": "object",
+  "properties": {
+    "nav": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/navItem" }
+    }
+  },
+  "required": ["nav"],
+  "additionalProperties": false,
+  "$defs": {
+    "navItem": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "Display label for the navigation link."
+        },
+        "href": {
+          "type": "string",
+          "description": "URL of the navigation target."
+        },
+        "children": {
+          "type": "array",
+          "description": "Optional sub-navigation items.",
+          "items": { "$ref": "#/$defs/navItem" }
+        }
+      },
+      "required": ["label", "href"],
+      "additionalProperties": false
+    }
+  }
+}

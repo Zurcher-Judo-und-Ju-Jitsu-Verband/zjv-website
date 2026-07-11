@@ -1,0 +1,16 @@
+{
+  "$schema": "https://zjv.ch/nav.schema.json",
+  "nav": [
+    { "label": "News",  "href": "/news" },
+    { "label": "Kurse", "href": "/kurse" },
+    {
+      "label": "ZJV",
+      "href": "/zjv",
+      "children": [
+        { "label": "Vorstellung",     "href": "/zjv/vorstellung" },
+        { "label": "Verantwortliche", "href": "/zjv/personen" },
+        { "label": "Mitgliedschaften","href": "/zjv/mitgliedschaften" }
+      ]
+    }
+  ]
+}

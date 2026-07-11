@@ -51,6 +51,38 @@ The structure below reflects the original Joomla-based site. We aim to preserve 
 
 See [TODO.md](TODO.md) for pending tasks and improvements.
 
+## Site Navigation
+
+The site navigation structure is defined in [`nav.json`](nav.json) at the root of the repository, validated against [`nav.schema.json`](nav.schema.json).
+
+`zjv-main.js` fetches `nav.json` at runtime and renders the site header from it. Changing the navigation — adding, removing, or reordering items — only requires editing `nav.json`, not any JavaScript.
+
+### nav.json format
+
+Each item has a `label`, an `href`, and an optional `children` array for sub-navigation. Nesting can go arbitrarily deep; the renderer determines how many levels to display.
+
+```json
+{
+  "nav": [
+    { "label": "News",  "href": "/news" },
+    { "label": "Kurse", "href": "/kurse" },
+    {
+      "label": "ZJV",
+      "href": "/zjv",
+      "children": [
+        { "label": "Vorstellung", "href": "/zjv/vorstellung" }
+      ]
+    }
+  ]
+}
+```
+
+| Field | Required | Description |
+|-------|----------|-------------|
+| `label` | yes | Display text for the link |
+| `href` | yes | Target URL |
+| `children` | no | Sub-navigation items (same structure, recursive) |
+
 ## Design
 
 CSS custom properties are defined in `style.css`.
