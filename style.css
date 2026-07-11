@@ -137,6 +137,30 @@ figure.zjv-md-img-inline {
     margin: 1.5rem 0;
 }
 
+/* Mitgliedschaften list */
+.mitgliedschaften-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.mitgliedschaften-item img {
+    display: block;
+    max-height: 3rem;
+    width: auto;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+}
+
+.mitgliedschaften-item a:hover img {
+    opacity: 1;
+}
+
 /* Personen list */
 .personen-item {
     margin: 0 0 1.25rem 0;

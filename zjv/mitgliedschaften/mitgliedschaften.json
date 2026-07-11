@@ -1,0 +1,9 @@
+{
+  "$schema": "https://zjv.ch/zjv/mitgliedschaften/mitgliedschaften.schema.json",
+  "mitgliedschaften": [
+    { "name": "Schweizerischer Judo & Ju-Jitsu Verband (SJV)", "url": "https://www.sjv.ch/", "logo": "sjv.jpg" },
+    { "name": "Zürcher Kantonalverband für Sport (ZKS)",        "url": "https://www.zks-zuerich.ch/",  "logo": "zks.jpg" },
+    { "name": "Sportamt Kanton Zürich",                         "url": "https://sport.zh.ch/",         "logo": "sportamt.jpg" },
+    { "name": "Pallas",                                         "url": "https://www.pallas.ch/",       "logo": "pallas.jpg" }
+  ]
+}

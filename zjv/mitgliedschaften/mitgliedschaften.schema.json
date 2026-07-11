@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://zjv.ch/zjv/mitgliedschaften/mitgliedschaften.schema.json",
+  "title": "ZJV Mitgliedschaften",
+  "description": "Organisationen, bei denen der Zürcher Judo & Ju-Jitsu Verband ZJV Mitglied ist.",
+  "type": "object",
+  "properties": {
+    "mitgliedschaften": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name der Organisation."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "Website-URL der Organisation."
+          },
+          "logo": {
+            "type": "string",
+            "description": "Pfad zur Logo-Datei, relativ zu diesem Verzeichnis."
+          }
+        },
+        "required": ["name", "url", "logo"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["mitgliedschaften"],
+  "additionalProperties": false
+}
