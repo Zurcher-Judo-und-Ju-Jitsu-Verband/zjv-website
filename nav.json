@@ -1,8 +1,6 @@
 {
   "$schema": "https://zjv.ch/nav.schema.json",
   "nav": [
-    { "label": "News",  "href": "/news" },
-    { "label": "Kurse", "href": "/kurse" },
     {
       "label": "ZJV",
       "href": "/zjv",
@@ -11,6 +9,8 @@
         { "label": "Verantwortliche", "href": "/zjv/personen" },
         { "label": "Mitgliedschaften","href": "/zjv/mitgliedschaften" }
       ]
-    }
+    },
+    { "label": "News",  "href": "/news" },
+    { "label": "Kurse", "href": "/kurse" }
   ]
 }
