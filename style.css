@@ -147,8 +147,8 @@ figure.zjv-md-img-inline {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: #fff;
-    border-bottom: 1px solid #ddd;
+    background: #003f6b;
+    border-bottom: none;
 }
 
 .site-header-inner {
@@ -164,7 +164,7 @@ figure.zjv-md-img-inline {
 .site-header-logo {
     font-weight: bold;
     font-size: 1.1rem;
-    color: var(--color-primary);
+    color: #fff;
     text-decoration: none;
     flex: 1;
     display: flex;
@@ -179,7 +179,7 @@ figure.zjv-md-img-inline {
 }
 
 .site-header-logo:hover {
-    color: var(--color-primary-hover);
+    color: #e0f0ff;
 }
 
 .site-header-toggle {
@@ -187,7 +187,7 @@ figure.zjv-md-img-inline {
     border: none;
     font-size: 1.4rem;
     cursor: pointer;
-    color: var(--color-text);
+    color: #fff;
     padding: 0.25rem 0.5rem;
     line-height: 1;
 }
@@ -199,8 +199,8 @@ figure.zjv-md-img-inline {
     top: 48px;
     left: 0;
     right: 0;
-    background: #fff;
-    border-bottom: 1px solid #ddd;
+    background: #003f6b;
+    border-bottom: 2px solid #002a4a;
     padding: 0.5rem 1rem 1rem;
     flex-direction: column;
     gap: 0;
@@ -213,10 +213,10 @@ figure.zjv-md-img-inline {
 .site-header-nav a {
     display: block;
     padding: 0.5rem 0;
-    color: var(--color-text);
+    color: #e0f0ff;
     text-decoration: none;
     font-size: 0.95rem;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #00527a;
 }
 
 .site-header-nav a:last-child,
@@ -226,7 +226,7 @@ figure.zjv-md-img-inline {
 
 .site-header-nav a:hover,
 .site-header-nav a.active {
-    color: var(--color-primary);
+    color: #fff;
 }
 
 .site-header-nav a.active {
@@ -239,11 +239,24 @@ figure.zjv-md-img-inline {
 
 .site-header-children a {
     font-size: 0.85rem;
-    color: #666;
+    color: #a8d4f0;
 }
 
-/* Desktop: show nav inline, hide toggle */
+/* Desktop: show nav inline, hide toggle, restore white */
 @media (min-width: 640px) {
+    .site-header {
+        background: #fff;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .site-header-logo {
+        color: var(--color-primary);
+    }
+
+    .site-header-logo:hover {
+        color: var(--color-primary-hover);
+    }
+
     .site-header-toggle {
         display: none;
     }
@@ -264,6 +277,7 @@ figure.zjv-md-img-inline {
         padding: 0.25rem 0.5rem;
         font-size: 0.9rem;
         border-radius: 3px;
+        color: var(--color-text);
     }
 
     .site-header-nav a:hover,
