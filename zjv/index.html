@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZJV – Verband</title>
+    <title>ZJV – Vorstellung</title>
     <link rel="icon" type="image/png" href="/zjv-logo.png">
     <link rel="stylesheet" href="/style.css?v=1783798697">
+    <script type="module" src="/js/zjv-article.js?v=1783798697"></script>
+    <script type="module" src="/js/zjv-personen.js?v=1783710585"></script>
     <script type="module" src="/js/zjv-main.js?v=1783798697"></script>
 </head>
 <body>
     <zjv-main>
+        <zjv-article src="/zjv/vorstellung" heading-level="1"></zjv-article>
         <zjv-article>
-            <h1 class="article-title">Zürcher Judo &amp; Ju-Jitsu Verband</h1>
-            <ul>
-                <li><a href="/zjv/vorstellung">Vorstellung</a></li>
-                <li><a href="/zjv/personen">Verantwortliche</a></li>
-                <li><a href="/zjv/mitgliedschaften">Mitgliedschaften</a></li>
-            </ul>
+            <h2 class="article-title">Verantwortliche ZJV</h2>
+            <zjv-personen src="/zjv/personen/personen.json"></zjv-personen>
+            <time class="article-date" datetime="2026-07-11">Stand 11. Juli 2026</time>
         </zjv-article>
     </zjv-main>
 </body>

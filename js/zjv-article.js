@@ -35,7 +35,7 @@ class ZjvArticle extends HTMLElement {
             ? `<${titleTag} class="article-title">${escapeHtml(meta.title)}</${titleTag}>`
             : '';
         const dateHtml = meta.date
-            ? `<time class="article-date" datetime="${escapeHtml(meta.date)}">veröffentlicht ${formatDate(meta.date)}</time>`
+            ? `<time class="article-date" datetime="${escapeHtml(meta.date)}">Stand ${formatDate(meta.date)}</time>`
             : '';
 
         this.innerHTML = `<article class="zjv-article">${titleHtml}${renderBody(body, basePath, headingLevel)}${dateHtml}</article>`;
