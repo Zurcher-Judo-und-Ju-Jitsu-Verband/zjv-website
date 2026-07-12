@@ -7,9 +7,9 @@ Ein transparenter Umgang mit Personendaten ist uns ein wichtiges Anliegen. Diese
 
 ## 1. Verantwortliche Stelle
 
-Zürcher Judo & Ju-Jitsu Verband ZJV  
-Mirjam Senn  
-8000 Zürich  
+Zürcher Judo & Ju-Jitsu Verband ZJV<br>
+Mirjam Senn<br>
+8000 Zürich<br>
 [mirjam.senn@zjv.ch](mailto:mirjam.senn@zjv.ch)
 
 ## 2. Erhobene Daten beim Websitebesuch

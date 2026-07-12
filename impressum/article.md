@@ -5,15 +5,15 @@ date: 2026-07-12
 
 ## Inhalt
 
-Zürcher Judo & Ju-Jitsu Verband ZJV  
-8000 Zürich  
+Zürcher Judo & Ju-Jitsu Verband ZJV<br>
+8000 Zürich<br>
 [info@zjv.ch](mailto:info@zjv.ch)
 
 ## Hosting
 
-Hostpoint AG  
-St. Dionysstrasse 31  
-8640 Rapperswil-Jona  
+Hostpoint AG<br>
+St. Dionysstrasse 31<br>
+8640 Rapperswil-Jona<br>
 [https://www.hostpoint.ch/](https://www.hostpoint.ch/)
 
 ## Haftungsausschluss

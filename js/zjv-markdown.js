@@ -109,14 +109,16 @@ export function renderBody(text, basePath, headingLevel) {
 }
 
 function renderInline(text, basePath) {
-    // Single-pass tokenizer: links [text](url) and bold **text**
-    const pattern = /(?<!!)\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*/g;
+    // Single-pass tokenizer: <br>, links [text](url) and bold **text**
+    const pattern = /<br>|(?<!!)\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*/g;
     const result = [];
     let last = 0;
     let m;
     while ((m = pattern.exec(text)) !== null) {
         if (m.index > last) result.push(escapeHtml(text.slice(last, m.index)));
-        if (m[1] !== undefined) {
+        if (m[0] === '<br>') {
+            result.push('<br>');
+        } else if (m[1] !== undefined) {
             const url = m[2].trim();
             const isExternal = url.startsWith('http');
             const resolvedUrl = isExternal ? url : `${basePath}/${url}`;
