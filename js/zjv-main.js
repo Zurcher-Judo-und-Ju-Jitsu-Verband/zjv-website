@@ -19,7 +19,8 @@ class ZjvMain extends HTMLElement {
                     <zjv-mitgliedschaften src="/zjv/mitgliedschaften/mitgliedschaften.json"></zjv-mitgliedschaften>
                 </div>
                 <nav class="site-footer-nav">
-                    Hier geht es zu unserer <a href="/datenschutz">Datenschutzerklärung</a>.
+                    <a href="/impressum">Impressum</a> &middot;
+                    <a href="/datenschutz">Datenschutzerklärung</a>.
                 </nav>
             </div>`;
         this.insertAdjacentElement('afterend', footer);
