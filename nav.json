@@ -15,9 +15,18 @@
       "label": "Leistungssport",
       "href": "/leistungssport",
       "children": [
+        { "label": "RLZ",              "href": "https://rlz-zjv.ch/" },
+        { "label": "Kantonalkader",    "href": "http://zjv-kantonalkader.clubdesk.com/clubdesk/www" },
         { "label": "Behindertensport", "href": "/leistungssport/zjv-behindertensport" }
       ]
     },
-    { "label": "Kurse", "href": "/kurse" }
+    { 
+      "label": "Kurse", 
+      "href": "/kurse",
+      "children": [
+        { "label": "Kurse",       "href": "/kurse" },
+        { "label": "SV / pa!!as", "href": "https://www.pallas.ch/kursangebote/kursangebote.html" }
+      ]
+     }
   ]
 }

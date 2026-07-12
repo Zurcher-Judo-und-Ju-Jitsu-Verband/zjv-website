@@ -29,7 +29,7 @@ class ZjvMain extends HTMLElement {
     async _insertHeader() {
         let navItems = [];
         try {
-            const res = await fetch('/nav.json?v=1783857000');
+            const res = await fetch('/nav.json?v=1783856974');
             if (res.ok) ({ nav: navItems } = await res.json());
         } catch { /* render empty header on failure */ }
 
@@ -67,12 +67,14 @@ class ZjvMain extends HTMLElement {
     }
 
     _renderNavItem(item) {
+        const isExternal = item.href.startsWith('http');
+        const attrs = isExternal ? ' target="_blank" rel="noopener"' : '';
         if (!item.children?.length) {
-            return `<a href="${escapeHtml(item.href)}">${escapeHtml(item.label)}</a>`;
+            return `<a href="${escapeHtml(item.href)}"${attrs}>${escapeHtml(item.label)}</a>`;
         }
         return `
             <div class="site-header-group">
-                <a href="${escapeHtml(item.href)}">${escapeHtml(item.label)}</a>
+                <a href="${escapeHtml(item.href)}"${attrs}>${escapeHtml(item.label)}</a>
                 <div class="site-header-children">
                     ${item.children.map(child => this._renderNavItem(child)).join('')}
                 </div>
