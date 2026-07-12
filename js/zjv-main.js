@@ -29,7 +29,7 @@ class ZjvMain extends HTMLElement {
     async _insertHeader() {
         let navItems = [];
         try {
-            const res = await fetch('/nav.json?v=1783856974');
+            const res = await fetch('/nav.json?v=1783865276');
             if (res.ok) ({ nav: navItems } = await res.json());
         } catch { /* render empty header on failure */ }
 

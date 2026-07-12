@@ -1,0 +1,395 @@
+{
+  "$schema": "https://zjv.ch/zjv/mitglieder/mitglieder.schema.json",
+  "mitglieder": [
+    {
+      "name": "Budo-Sport-Club Affoltern am Albis",
+      "bezirk": "Affoltern",
+      "adresse": "Industriestrasse 18",
+      "plz": "8910",
+      "ort": "Affoltern am Albis",
+      "webseite": "http://www.bsca-judo.ch",
+      "lat": 47.271883,
+      "lng": 8.444332
+    },
+    {
+      "name": "Budoschule Opfikon",
+      "bezirk": "Bülach",
+      "adresse": "Industriestrasse 28",
+      "plz": "8152",
+      "ort": "Opfikon",
+      "webseite": "http://www.budoschule-opfikon.ch/",
+      "lat": 47.430915,
+      "lng": 8.557993
+    },
+    {
+      "name": "Judo Club Kloten",
+      "bezirk": "Bülach",
+      "adresse": "Schulhaus Nägelimoos",
+      "plz": "8302",
+      "ort": "Kloten",
+      "webseite": "http://www.judo-club-kloten.ch",
+      "lat": 47.452708,
+      "lng": 8.586484
+    },
+    {
+      "name": "Judo-Team Bülach",
+      "bezirk": "Bülach",
+      "adresse": "Stadthalle Bülach - Allmendstrasse 8",
+      "plz": "8180",
+      "ort": "Bülach",
+      "webseite": "http://www.judo-team-buelach.ch",
+      "lat": 47.515669,
+      "lng": 8.536531
+    },
+    {
+      "name": "Judokai Wallisellen",
+      "bezirk": "Bülach",
+      "adresse": "Alte Winterthurerstrasse 62",
+      "plz": "8304",
+      "ort": "Wallisellen",
+      "webseite": "http://www.jkw.ch",
+      "lat": 47.417442,
+      "lng": 8.595042
+    },
+    {
+      "name": "Selbstverteidigungsclub Glattbrugg",
+      "bezirk": "Bülach",
+      "adresse": "Fabrikstrasse 25",
+      "plz": "8152",
+      "ort": "Glattbrugg",
+      "webseite": "http://www.svc-g.ch",
+      "lat": 47.43415,
+      "lng": 8.563597
+    },
+    {
+      "name": "Judo Schule Regensdorf",
+      "bezirk": "Dielsdorf",
+      "adresse": "Adlikerstrasse 62",
+      "plz": "8105",
+      "ort": "Regensdorf",
+      "webseite": "http://www.judo-regensdorf.ch",
+      "lat": 47.433954,
+      "lng": 8.464394
+    },
+    {
+      "name": "Judo-Sport Club Dietikon",
+      "bezirk": "Dietikon",
+      "adresse": "Schulhaus Steinmürli Römerstr.13",
+      "plz": "8953",
+      "ort": "Dietikon",
+      "webseite": "http://www.judo-dietikon.ch/",
+      "lat": 47.403084,
+      "lng": 8.399335
+    },
+    {
+      "name": "Judoclub Engstringen",
+      "bezirk": "Dietikon",
+      "adresse": "Turnhalle Rebberg, Rebbergstrasse 93",
+      "plz": "8102",
+      "ort": "Oberengstringen",
+      "webseite": "http://www.judoclubengstringen.ch",
+      "lat": 47.409308,
+      "lng": 8.464474
+    },
+    {
+      "name": "Judo-Club Wetzikon",
+      "bezirk": "Hinwil",
+      "adresse": "Mattackerstrasse (Turnhallen Kantonsschule KZO)",
+      "plz": "8620",
+      "ort": "Wetzikon",
+      "webseite": "http://www.judo-wetzikon.ch",
+      "lat": 47.324095,
+      "lng": 8.794699
+    },
+    {
+      "name": "Budo-Schule Wädenswil",
+      "bezirk": "Horgen",
+      "adresse": "Oberdorfstrasse 27",
+      "plz": "8820",
+      "ort": "Wädenswil",
+      "webseite": "http://www.budoschule.ch",
+      "lat": 47.22899,
+      "lng": 8.667984
+    },
+    {
+      "name": "Judo Club O-NAMI Horgen",
+      "bezirk": "Horgen",
+      "adresse": "Schulhaus Berghalden, Rainweg 16",
+      "plz": "8810",
+      "ort": "Horgen",
+      "webseite": "http://www.o-nami.ch",
+      "lat": 47.255417,
+      "lng": 8.600191
+    },
+    {
+      "name": "Judoclub Sihltal, Adliswil",
+      "bezirk": "Horgen",
+      "adresse": "Kulturschachtle Zürichstrasse",
+      "plz": "8134",
+      "ort": "Adliswil",
+      "webseite": "http://www.judoclubsihltal.ch",
+      "lat": 47.309942,
+      "lng": 8.526587
+    },
+    {
+      "name": "Judo + Ju-Jitsu Club des Kanton Glarus",
+      "bezirk": "Kanton Glarus",
+      "adresse": "Zivilschutzräumlichkeiten Kantonsschule",
+      "plz": "8750",
+      "ort": "Glarus",
+      "webseite": "http://www.jjglarus.ch",
+      "lat": 47.040572,
+      "lng": 9.052335
+    },
+    {
+      "name": "Judoclub Yawara Glarnerland",
+      "bezirk": "Kanton Glarus",
+      "adresse": "Fabrikstrasse 3 - Gebäude F, 1. Stock",
+      "plz": "8867",
+      "ort": "Niederurnen",
+      "webseite": "http://www.yawara.ch",
+      "lat": 47.125618,
+      "lng": 9.053578
+    },
+    {
+      "name": "Judo Club Schaffhausen",
+      "bezirk": "Kanton Schaffhausen",
+      "adresse": "Hauentalstrasse",
+      "plz": "8200",
+      "ort": "Schaffhausen",
+      "webseite": "http://www.judo-club-schaffhausen.ch",
+      "lat": 47.708935,
+      "lng": 8.626013
+    },
+    {
+      "name": "Budo Club March, Siebnen",
+      "bezirk": "Kanton Schwyz",
+      "adresse": "Äussere Bahnhofstrasse 45",
+      "plz": "8854",
+      "ort": "Galgenen",
+      "webseite": "http://www.bcmarch.ch",
+      "lat": 47.175683,
+      "lng": 8.891255
+    },
+    {
+      "name": "Kampfsportcenter Dojigo Wollerau",
+      "bezirk": "Kanton Schwyz",
+      "adresse": "Roosstrasse 11",
+      "plz": "8832",
+      "ort": "Wollerau",
+      "webseite": "http://www.kampfsportcenter.ch",
+      "lat": 47.19419,
+      "lng": 8.721013
+    },
+    {
+      "name": "JJJC-Rapperswil-Jona",
+      "bezirk": "Kanton St. Gallen",
+      "adresse": "Bildaustrasse 20",
+      "plz": "8640",
+      "ort": "Rapperswil-Jona",
+      "webseite": "http://www.jjjc-rappi-jona.ch",
+      "lat": 47.230937,
+      "lng": 8.830015
+    },
+    {
+      "name": "Judo & Ju-Jitsu Schule Gommiswald",
+      "bezirk": "Kanton St. Gallen",
+      "adresse": "Hof 15",
+      "plz": "8737",
+      "ort": "Gommiswald",
+      "webseite": "http://www.judogommiswald.ch",
+      "lat": 47.23829,
+      "lng": 9.008143
+    },
+    {
+      "name": "Judo- und Ju-Jitsuclub Ni-Honto Heiligkreuz",
+      "bezirk": "Kanton St. Gallen",
+      "adresse": "Bahnhofstrasse 77",
+      "plz": "8887",
+      "ort": "Mels",
+      "webseite": "http://www.nihonto.ch",
+      "lat": 47.052926,
+      "lng": 9.416059
+    },
+    {
+      "name": "Judoclub-Kaltbrunn",
+      "bezirk": "Kanton St. Gallen",
+      "adresse": "Alte Turnhalle Hauswiese",
+      "plz": "8722",
+      "ort": "Kaltbrunn",
+      "webseite": "http://www.judoclub-kaltbrunn.ch/",
+      "lat": 47.206161,
+      "lng": 9.033174
+    },
+    {
+      "name": "Judokwai Walenstadt",
+      "bezirk": "Kanton St. Gallen",
+      "adresse": "Schulhaus Escher-Linth",
+      "plz": "8880",
+      "ort": "Walenstadt",
+      "webseite": "http://www.judokwaiwalenstadt.ch",
+      "lat": 47.126833,
+      "lng": 9.3156
+    },
+    {
+      "name": "JC Tsukuri",
+      "bezirk": "Meilen",
+      "adresse": "Schulhaus Blatten, Schulstrasse 30",
+      "plz": "8708",
+      "ort": "Männedorf",
+      "webseite": "http://www.jc-tsukuri.ch",
+      "lat": 47.254277,
+      "lng": 8.694917
+    },
+    {
+      "name": "Jiu-Jitsu + Judo-Club Meilen",
+      "bezirk": "Meilen",
+      "adresse": "Schulanlage Allmend",
+      "plz": "8706",
+      "ort": "Meilen",
+      "webseite": "http://www.jjcmeilen.ch",
+      "lat": 47.27217,
+      "lng": 8.647829
+    },
+    {
+      "name": "Kampfsportcenter Hombrechtikon",
+      "bezirk": "Meilen",
+      "adresse": "Neuhofweg 10",
+      "plz": "8634",
+      "ort": "Hombrechtikon",
+      "webseite": "http://www.kampfsport-center.ch",
+      "lat": 47.253197,
+      "lng": 8.777268
+    },
+    {
+      "name": "Budo Club Volketswil",
+      "bezirk": "Uster",
+      "adresse": "Eichholzstrasse 11",
+      "plz": "8604",
+      "ort": "Volketswil",
+      "webseite": "http://www.budoclub.ch",
+      "lat": 47.390736,
+      "lng": 8.685093
+    },
+    {
+      "name": "Judo Club Uster",
+      "bezirk": "Uster",
+      "adresse": "Gerberstrasse 5",
+      "plz": "8610",
+      "ort": "Uster",
+      "webseite": "http://www.judo-club-uster.ch",
+      "lat": 47.348583,
+      "lng": 8.71813
+    },
+    {
+      "name": "Judo- + Ju-Jitsu-Club Dübendorf",
+      "bezirk": "Uster",
+      "adresse": "unter dem Kino Orion",
+      "plz": "8060",
+      "ort": "Dübendorf",
+      "webseite": "http://www.jjcd.ch",
+      "lat": 47.396994,
+      "lng": 8.618567
+    },
+    {
+      "name": "Judo & Ju Jitsu Club Winterthur",
+      "bezirk": "Winterthur",
+      "adresse": "Sportplatz Schützenwiese, Rennweg 5",
+      "plz": "8400",
+      "ort": "Winterthur",
+      "webseite": "http://www.jjcw.ch",
+      "lat": 47.500197,
+      "lng": 8.727867
+    },
+    {
+      "name": "Budokan Zürich",
+      "bezirk": "Zürich",
+      "adresse": "Zweierstrasse 106",
+      "plz": "8003",
+      "ort": "Zürich",
+      "webseite": "http://www.budokan.ch/",
+      "lat": 47.371805,
+      "lng": 8.521463
+    },
+    {
+      "name": "Fight4Kids",
+      "bezirk": "Zürich",
+      "adresse": "Zweierstrasse 106",
+      "plz": "8003",
+      "ort": "Zürich",
+      "webseite": "http://www.fight4kids.ch",
+      "lat": 47.371805,
+      "lng": 8.521463
+    },
+    {
+      "name": "IG Pallas - Selbstverteidigung für Frauen und Mädchen",
+      "bezirk": "Zürich",
+      "adresse": "Rosswöschstrasse 8",
+      "plz": "6017",
+      "ort": "Ruswil",
+      "webseite": "http://www.pallas.ch",
+      "lat": 47.08243,
+      "lng": 8.125085
+    },
+    {
+      "name": "JCA Zürich-Affoltern",
+      "bezirk": "Zürich",
+      "adresse": "Schulhaus Kügeliloo, Maienstrasse 9",
+      "plz": "8050",
+      "ort": "Zürich",
+      "webseite": "http://www.jca.ch",
+      "lat": 47.410658,
+      "lng": 8.528258
+    },
+    {
+      "name": "Ju-Jitsu Zürich",
+      "bezirk": "Zürich",
+      "adresse": "Binzstrasse 12",
+      "plz": "8045",
+      "ort": "Zürich",
+      "webseite": "http://www.jjzh.ch",
+      "lat": 47.362978,
+      "lng": 8.515791
+    },
+    {
+      "name": "Judo Club Nippon Zürich",
+      "bezirk": "Zürich",
+      "adresse": "Lagerstrasse 55",
+      "plz": "8090",
+      "ort": "Zürich",
+      "webseite": "http://jcnipponzh.ch",
+      "lat": 47.378393,
+      "lng": 8.531223
+    },
+    {
+      "name": "Judo- + Ju-Jitsu-Club Weisse Löwen",
+      "bezirk": "Zürich",
+      "adresse": "Luchswiesenstrasse 186",
+      "plz": "8051",
+      "ort": "Zürich",
+      "webseite": "http://www.wlz.ch",
+      "lat": 47.404393,
+      "lng": 8.587029
+    },
+    {
+      "name": "Judo- und Selbstverteidigungsclub Zürich JSCZ",
+      "bezirk": "Zürich",
+      "adresse": "Turnhaus Letten, Imfeldstrasse 90",
+      "plz": "8037",
+      "ort": "Zürich",
+      "webseite": "http://www.judoclub.ch",
+      "lat": 47.394033,
+      "lng": 8.526392
+    },
+    {
+      "name": "Polizei-Ju-Jitsu-Club Zürich",
+      "bezirk": "Zürich",
+      "adresse": "Sportanlage Sihlhölzli, Manessestrasse 1",
+      "plz": "8045",
+      "ort": "Zürich",
+      "webseite": "http://www.pjjcz.ch",
+      "lat": 47.359375,
+      "lng": 8.512865
+    }
+  ]
+}

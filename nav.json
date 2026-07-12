@@ -25,6 +25,7 @@
       "children": [
         { "label": "Vorstellung",     "href": "/zjv/vorstellung" },
         { "label": "Verantwortliche", "href": "/zjv/personen" },
+        { "label": "Mitglieder",      "href": "/zjv/mitglieder" },
         { "label": "Mitgliedschaften","href": "/zjv/mitgliedschaften" }
       ]
     }

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://zjv.ch/zjv/mitglieder/mitglieder.schema.json",
+  "title": "ZJV Mitglieder",
+  "description": "Mitgliedsvereine des Zürcher Judo & Ju-Jitsu Verbands ZJV.",
+  "type": "object",
+  "properties": {
+    "mitglieder": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name des Vereins."
+          },
+          "bezirk": {
+            "type": "string",
+            "description": "Bezirk oder Kanton des Dojos."
+          },
+          "adresse": {
+            "type": "string",
+            "description": "Strasse und Hausnummer des Dojos."
+          },
+          "plz": {
+            "type": "string",
+            "description": "Postleitzahl des Dojos."
+          },
+          "ort": {
+            "type": "string",
+            "description": "Ort des Dojos."
+          },
+          "webseite": {
+            "type": "string",
+            "format": "uri",
+            "description": "Website des Vereins (optional)."
+          },
+          "lat": {
+            "type": "number",
+            "description": "Breitengrad des Dojos (optional, für Kartenansicht)."
+          },
+          "lng": {
+            "type": "number",
+            "description": "Längengrad des Dojos (optional, für Kartenansicht)."
+          }
+        },
+        "required": ["name", "bezirk", "adresse", "plz", "ort"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["mitglieder"],
+  "additionalProperties": false
+}
