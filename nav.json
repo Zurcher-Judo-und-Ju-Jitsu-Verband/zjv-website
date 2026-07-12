@@ -11,6 +11,13 @@
       ]
     },
     { "label": "News",  "href": "/news" },
+    {
+      "label": "Leistungssport",
+      "href": "/leistungssport",
+      "children": [
+        { "label": "Behindertensport", "href": "/leistungssport/zjv-behindertensport" }
+      ]
+    },
     { "label": "Kurse", "href": "/kurse" }
   ]
 }

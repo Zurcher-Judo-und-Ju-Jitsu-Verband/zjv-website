@@ -121,7 +121,8 @@ function renderInline(text, basePath) {
         } else if (m[1] !== undefined) {
             const url = m[2].trim();
             const isExternal = url.startsWith('http');
-            const resolvedUrl = isExternal ? url : `${basePath}/${url}`;
+            const isAbsolute = url.startsWith('/');
+            const resolvedUrl = (isExternal || isAbsolute) ? url : `${basePath}/${url}`;
             const attrs = isExternal ? ' target="_blank" rel="noopener"' : '';
             result.push(`<a href="${escapeHtml(resolvedUrl)}"${attrs}>${escapeHtml(m[1])}</a>`);
         } else {
