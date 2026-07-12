@@ -1,7 +1,7 @@
 // Custom element: <zjv-mitglieder-karte src="/zjv/mitglieder/mitglieder.json">
 // Renders a passive club map: Swisstopo base image, SVG region overlay, clickable club markers.
 
-import { slugify } from '/js/zjv-utils.js?v=1783711852';
+import { slugify } from '/js/zjv-utils.js?v=1783867364';
 
 // Bounding box — 10% relative padding on all sides of club extents
 const LAT_MIN = 46.97, LAT_MAX = 47.78;

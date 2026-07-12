@@ -1,7 +1,7 @@
 // Custom element: <zjv-mitgliedschaften src="/zjv/mitgliedschaften/mitgliedschaften.json">
 // Fetches the mitgliedschaften.json data file and renders a logo list.
 
-import { escapeHtml } from '/js/zjv-utils.js?v=1783711852';
+import { escapeHtml } from '/js/zjv-utils.js?v=1783867364';
 
 class ZjvMitgliedschaften extends HTMLElement {
     async connectedCallback() {

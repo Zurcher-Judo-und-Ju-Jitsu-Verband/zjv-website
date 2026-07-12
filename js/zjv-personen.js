@@ -1,7 +1,7 @@
 // Custom element: <zjv-personen src="/zjv/personen/personen.json">
 // Fetches the personen.json data file and renders a contact list.
 
-import { escapeHtml } from '/js/zjv-utils.js?v=1783711852';
+import { escapeHtml } from '/js/zjv-utils.js?v=1783867364';
 
 class ZjvPersonen extends HTMLElement {
     async connectedCallback() {

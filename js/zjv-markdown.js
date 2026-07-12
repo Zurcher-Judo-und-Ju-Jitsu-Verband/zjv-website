@@ -4,7 +4,7 @@
 // CONTRACT: this module emits only semantic HTML and zjv-md-* CSS classes.
 // Never use component-specific classes (e.g. zjv-article, article-*).
 
-import { escapeHtml } from '/js/zjv-utils.js?v=1783711852';
+import { escapeHtml } from '/js/zjv-utils.js?v=1783867364';
 export { escapeHtml };
 // Consumers are responsible for their own styling via scoped selectors.
 //
