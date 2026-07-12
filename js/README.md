@@ -12,6 +12,8 @@ Client-side JavaScript for the ZJV website. All files are plain ES modules, no b
 | `zjv-articles.js` | `<zjv-articles>`, `<zjv-source>` | Collects one or more article sources, merges by date, and renders with lazy loading |
 | `zjv-personen.js` | `<zjv-personen>` | Fetches and renders a contact list from a `personen.json` data file |
 | `zjv-mitgliedschaften.js` | `<zjv-mitgliedschaften>` | Fetches and renders a logo list from a `mitgliedschaften.json` data file |
+| `zjv-mitglieder-liste.js` | `<zjv-mitglieder-liste>` | Fetches and renders member clubs grouped by Bezirk/Kanton from `mitglieder.json` |
+| `zjv-mitglieder-karte.js` | `<zjv-mitglieder-karte>` | Interactive club map: WMS base image + SVG region overlays + club markers (planned) |
 | `zjv-yt-gallery.js` | `<zjv-yt-gallery>`, `<zjv-yt-tile>` | YouTube video tile gallery with click-to-embed |
 
 ## Usage
@@ -161,4 +163,39 @@ Shared utility module, imported by other JS files. Not a custom element.
 | Export | Description |
 |--------|-------------|
 | `escapeHtml(str)` | Escapes `&`, `<`, `>`, `"` for safe HTML insertion |
+
+## zjv-mitglieder-liste
+
+Fetches and renders member clubs from `mitglieder.json`, grouped by Bezirk/Kanton. Each club entry gets an `id` derived from the club name slug, enabling URL fragment navigation (`#slug`).
+
+```html
+<zjv-mitglieder-liste src="/zjv/mitglieder/mitglieder.json"></zjv-mitglieder-liste>
+```
+
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| `src` | yes | URL of the `mitglieder.json` data file |
+
+### Behaviour
+
+- Clubs are grouped by the `bezirk` field in order of appearance in the JSON
+- Each club `<div>` has an `id` equal to the slugified club name (lowercase, umlauts replaced, non-alphanumeric → hyphens)
+- On load, if the URL has a `#fragment` matching a club id, the element scrolls to it and applies `mitglieder-club--active`
+- Listens to `hashchange` for subsequent fragment navigation
+
+### Slug examples
+
+| Club name | id / fragment |
+|-----------|--------------|
+| Budokan Zürich | `#budokan-zuerich` |
+| Judo Club Uster | `#judo-club-uster` |
+| Budo-Schule Wädenswil | `#budo-schule-waedenswil` |
+
+## zjv-mitglieder-karte
+
+Interactive club map with a Swisstopo WMS base image, SVG region overlays, and club markers. Planned — not yet implemented. See the `mitglieder-map` skill for the asset pipeline.
+
+Assets (in `js/zjv-mitglieder-karte/`):
+- `map.png` — WMS base image, 900×650 px
+- `boundaries.svg` — combined Bezirk/canton overlay, same viewBox
 
