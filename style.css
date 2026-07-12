@@ -380,6 +380,14 @@ figure.zjv-md-img-inline {
     overflow: hidden;
     border-radius: 4px;
     margin-bottom: 1.5rem;
+    user-select: none;
+}
+
+.karte-inner {
+    position: absolute;
+    inset: 0;
+    transform-origin: 0 0;
+    will-change: transform;
 }
 
 .karte-base,
@@ -396,20 +404,29 @@ figure.zjv-md-img-inline {
 
 .karte-marker {
     position: absolute;
+    width: 44px;
+    height: 44px;
+    transform: translate(-50%, -50%) scale(calc(1 / var(--karte-zoom, 1)));
+    cursor: pointer;
+}
+
+.karte-marker::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
     width: 10px;
     height: 10px;
     background: var(--color-primary);
     border: 2px solid #fff;
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    cursor: pointer;
-    transition: transform 0.15s, background 0.15s;
+    transition: background 0.15s, width 0.15s, height 0.15s;
 }
 
-.karte-marker:hover {
+.karte-marker:hover::after {
     background: var(--color-primary-hover);
-    transform: translate(-50%, -50%) scale(1.5);
-    z-index: 1;
+    width: 14px;
+    height: 14px;
 }
 
 /* Mitglieder list */
