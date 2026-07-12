@@ -31,12 +31,16 @@ class ZjvMitgliederListe extends HTMLElement {
             groups.get(club.bezirk).push(club);
         }
 
-        // Highlight club if URL fragment matches on load
-        const highlight = () => {
+        // Highlight and scroll to club if URL fragment matches
+        const highlight = (scroll = false) => {
             const id = window.location.hash.slice(1);
             this.querySelectorAll('.mitglieder-club').forEach(el => {
                 el.classList.toggle('mitglieder-club--active', el.id === id);
             });
+            if (id && scroll) {
+                const target = this.querySelector(`#${CSS.escape(id)}`);
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         };
 
         this.innerHTML = [...groups.entries()].map(([bezirk, clubs]) => `
@@ -57,8 +61,8 @@ class ZjvMitgliederListe extends HTMLElement {
                 }).join('')}
             </section>`).join('');
 
-        highlight();
-        window.addEventListener('hashchange', highlight);
+        highlight(true);  // scroll on initial load (after async render)
+        window.addEventListener('hashchange', () => highlight(true));
     }
 }
 
