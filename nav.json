@@ -1,16 +1,15 @@
 {
   "$schema": "https://zjv.ch/nav.schema.json",
   "nav": [
-    {
-      "label": "ZJV",
-      "href": "/zjv",
+    { "label": "News",  "href": "/news" },
+    { 
+      "label": "Kurse", 
+      "href": "/kurse",
       "children": [
-        { "label": "Vorstellung",     "href": "/zjv/vorstellung" },
-        { "label": "Verantwortliche", "href": "/zjv/personen" },
-        { "label": "Mitgliedschaften","href": "/zjv/mitgliedschaften" }
+        { "label": "Kurse",       "href": "/kurse" },
+        { "label": "SV / pa!!as", "href": "https://www.pallas.ch/kursangebote/kursangebote.html" }
       ]
     },
-    { "label": "News",  "href": "/news" },
     {
       "label": "Leistungssport",
       "href": "/leistungssport",
@@ -20,13 +19,14 @@
         { "label": "Behindertensport", "href": "/leistungssport/zjv-behindertensport" }
       ]
     },
-    { 
-      "label": "Kurse", 
-      "href": "/kurse",
+    {
+      "label": "ZJV",
+      "href": "/zjv",
       "children": [
-        { "label": "Kurse",       "href": "/kurse" },
-        { "label": "SV / pa!!as", "href": "https://www.pallas.ch/kursangebote/kursangebote.html" }
+        { "label": "Vorstellung",     "href": "/zjv/vorstellung" },
+        { "label": "Verantwortliche", "href": "/zjv/personen" },
+        { "label": "Mitgliedschaften","href": "/zjv/mitgliedschaften" }
       ]
-     }
+    }
   ]
 }
