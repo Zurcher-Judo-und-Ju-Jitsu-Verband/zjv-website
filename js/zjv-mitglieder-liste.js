@@ -1,13 +1,7 @@
 // Custom element: <zjv-mitglieder-liste src="/zjv/mitglieder/mitglieder.json">
 // Fetches mitglieder.json and renders clubs grouped by Bezirk/Kanton.
 
-import { escapeHtml } from '/js/zjv-utils.js?v=1783711852';
-
-function slugify(name) {
-    return name.toLowerCase()
-        .replace(/ü/g, 'ue').replace(/ö/g, 'oe').replace(/ä/g, 'ae').replace(/ß/g, 'ss')
-        .replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
-}
+import { escapeHtml, slugify } from '/js/zjv-utils.js?v=1783711852';
 
 class ZjvMitgliederListe extends HTMLElement {
     async connectedCallback() {

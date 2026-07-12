@@ -163,6 +163,7 @@ Shared utility module, imported by other JS files. Not a custom element.
 | Export | Description |
 |--------|-------------|
 | `escapeHtml(str)` | Escapes `&`, `<`, `>`, `"` for safe HTML insertion |
+| `slugify(str)` | Lowercases, transliterates umlauts (ü→ue etc.), replaces non-alphanumeric with hyphens |
 
 ## zjv-mitglieder-liste
 
