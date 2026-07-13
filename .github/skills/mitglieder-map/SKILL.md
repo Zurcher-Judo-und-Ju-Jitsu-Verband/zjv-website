@@ -13,10 +13,10 @@ Derived from actual club `lat`/`lng` positions in `mitglieder.json`, with **10% 
 
 | Parameter | Value |
 |-----------|-------|
-| `LAT_MIN` | 46.97 |
-| `LAT_MAX` | 47.78 |
-| `LNG_MIN` | 8.00  |
-| `LNG_MAX` | 9.55  |
+| `LAT_MIN` | 46.7075 |
+| `LAT_MAX` | 47.8000 |
+| `LNG_MIN` | 7.9541  |
+| `LNG_MAX` | 10.0063 |
 | Image width | 900 px |
 | Image height | 650 px |
 
@@ -89,7 +89,7 @@ The base map is stored as `js/zjv-mitglieder-karte/map.png` (900×650 px). Fetch
 curl -o js/zjv-mitglieder-karte/map.png \
   "https://wms.geo.admin.ch/?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap\
 &LAYERS=ch.swisstopo.leichte-basiskarte_reliefschattierung\
-&CRS=EPSG:4326&BBOX=46.97,8.00,47.78,9.55\
+&CRS=EPSG:4326&BBOX=46.7075,7.9541,47.8000,10.0063\
 &WIDTH=900&HEIGHT=650&FORMAT=image/png&STYLES="
 ```
 
@@ -111,7 +111,7 @@ Uses the geo.admin.ch REST MapServer `find` endpoint. Returns ESRI JSON with `ri
 Affoltern, Andelfingen, Bülach, Dielsdorf, Dietikon, Hinwil, Horgen, Meilen, Pfäffikon, Uster, Winterthur, Zürich
 
 **Outer cantons** (layer: `ch.swisstopo.swissboundaries3d-kanton-flaeche.fill`):
-Glarus, Schaffhausen, Schwyz, St. Gallen
+Glarus, Graubünden, Luzern, Schaffhausen, Schwyz, St. Gallen
 
 ```python
 import urllib.request, json, urllib.parse
@@ -135,20 +135,20 @@ def esri_to_geojson(rings):
     return {"type": "MultiPolygon", "coordinates": [[r] for r in rings]}
 ```
 
-Output files: `zjv/mitglieder/bezirk-{slug}.geojson`, `kanton-{slug}.geojson`.
+Output files: none — GeoJSON is fetched in-memory and projected directly into `boundaries.svg`.
 Umlaut slugs: ü→ue, ö→oe, ä→ae (e.g. `bezirk-buelach`, `bezirk-zuerich`, `bezirk-pfaeffikon`).
 
 ---
 
 ## 4. Generating SVG Overlays
 
-Each GeoJSON → standalone SVG with `viewBox="0 0 900 650"`, aligned to the WMS image.
+All regions are combined into a single `js/zjv-mitglieder-karte/boundaries.svg` with `viewBox="0 0 900 650"`, aligned to the WMS image. Each region becomes one `<path id="{slug}">` element.
 
 **Projection** (linear, y-axis flipped for SVG):
 ```python
 # Bounding box — 10% relative padding on all sides of club extents
-LAT_MIN, LAT_MAX = 46.97, 47.78
-LNG_MIN, LNG_MAX = 8.00, 9.55
+LAT_MIN, LAT_MAX = 46.7075, 47.8000
+LNG_MIN, LNG_MAX = 7.9541, 10.0063
 W, H = 900, 650
 
 def project(lng, lat):
@@ -175,16 +175,16 @@ def simplify(pts, epsilon=1.5):
     return [pts[0], pts[-1]]
 ```
 
-SVG template per feature:
+SVG structure:
 ```xml
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" width="900" height="650">
-  <path id="{slug}" d="{path_data}"
-        fill="rgba(0,80,160,0.15)" stroke="#0050a0"
-        stroke-width="1.5" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650">
+  <style>path { fill: rgba(0,80,160,0.10); stroke: #0050a0; stroke-width: 1; stroke-linejoin: round; }</style>
+  <path id="bezirk-affoltern" d="..."/>
+  <!-- ... one <path> per Bezirk/Kanton ... -->
 </svg>
 ```
 
-Output files: `zjv/mitglieder/bezirk-{slug}.svg`, `kanton-{slug}.svg`.
+Output file: `js/zjv-mitglieder-karte/boundaries.svg`.
 
 ---
 
@@ -194,7 +194,7 @@ Convert `lat`/`lng` from `mitglieder.json` to pixel coordinates using the same `
 
 ```javascript
 // Bounding box — 10% relative padding on all sides of club extents
-const LAT_MIN = 46.97, LAT_MAX = 47.78, LNG_MIN = 8.00, LNG_MAX = 9.55;
+const LAT_MIN = 46.7075, LAT_MAX = 47.8000, LNG_MIN = 7.9541, LNG_MAX = 10.0063;
 const W = 900, H = 650;
 
 function project(lng, lat) {
@@ -215,6 +215,4 @@ All stored in `zjv/mitglieder/`:
 |------|-------------|
 | `mitglieder.json` | Club data with `lat`/`lng` geocoded |
 | `js/zjv-mitglieder-karte/map.png` | WMS base map image (fetch with curl, not in git) |
-| `js/zjv-mitglieder-karte/boundaries.svg` | Combined Bezirk/canton SVG overlay |
-| `bezirk-{slug}.geojson` / `.svg` | Zürich Bezirk boundaries |
-| `kanton-{slug}.geojson` / `.svg` | Outer canton boundaries |
+| `js/zjv-mitglieder-karte/boundaries.svg` | All Bezirk/canton outlines in one SVG (one `<path>` per region) |

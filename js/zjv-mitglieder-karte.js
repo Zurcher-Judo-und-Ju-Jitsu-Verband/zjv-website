@@ -4,8 +4,8 @@
 import { slugify } from '/js/zjv-utils.js?v=1783867364';
 
 // Bounding box — 10% relative padding on all sides of club extents
-const LAT_MIN = 46.97, LAT_MAX = 47.78;
-const LNG_MIN = 8.00,  LNG_MAX = 9.55;
+const LAT_MIN = 46.7075, LAT_MAX = 47.8000;
+const LNG_MIN = 7.9541,  LNG_MAX = 10.0063;
 const MAX_ZOOM = 20;
 
 function project(lng, lat) {
