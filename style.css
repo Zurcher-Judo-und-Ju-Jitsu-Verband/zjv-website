@@ -495,15 +495,21 @@ figure.zjv-md-img-inline {
     margin: 0;
     padding: 0;
     display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
+    flex-wrap: nowrap;
+    gap: 0.75rem;
     align-items: center;
     justify-content: center;
+}
+
+.mitgliedschaften-item {
+    flex: 0 1 auto;
+    min-width: 0;
 }
 
 .mitgliedschaften-item img {
     display: block;
     max-height: 3rem;
+    max-width: 100%;
     width: auto;
     opacity: 0.85;
     transition: opacity 0.2s;
