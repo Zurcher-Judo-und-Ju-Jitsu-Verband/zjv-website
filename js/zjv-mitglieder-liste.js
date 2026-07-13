@@ -1,5 +1,10 @@
 // Custom element: <zjv-mitglieder-liste src="/zjv/mitglieder/mitglieder.json">
 // Fetches mitglieder.json and renders clubs grouped by Bezirk/Kanton.
+//
+// Coordination with <zjv-mitglieder-karte>: clicking a club row sets location.hash
+// to the club's slug id. The element listens to hashchange to apply
+// mitglieder-club--active and scroll to the matching entry. No direct coupling to
+// the map element — the URL fragment is the shared state.
 
 import { escapeHtml, slugify } from '/js/zjv-utils.js?v=1783867364';
 

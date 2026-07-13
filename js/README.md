@@ -13,7 +13,7 @@ Client-side JavaScript for the ZJV website. All files are plain ES modules, no b
 | `zjv-personen.js` | `<zjv-personen>` | Fetches and renders a contact list from a `personen.json` data file |
 | `zjv-mitgliedschaften.js` | `<zjv-mitgliedschaften>` | Fetches and renders a logo list from a `mitgliedschaften.json` data file |
 | `zjv-mitglieder-liste.js` | `<zjv-mitglieder-liste>` | Fetches and renders member clubs grouped by Bezirk/Kanton from `mitglieder.json` |
-| `zjv-mitglieder-karte.js` | `<zjv-mitglieder-karte>` | Interactive club map: WMS base image + SVG region overlays + club markers (planned) |
+| `zjv-mitglieder-karte.js` | `<zjv-mitglieder-karte>` | Interactive club map: Swisstopo base image, SVG region overlay, zoomable/pannable, clickable markers |
 | `zjv-yt-gallery.js` | `<zjv-yt-gallery>`, `<zjv-yt-tile>` | YouTube video tile gallery with click-to-embed |
 
 ## Usage
@@ -183,6 +183,7 @@ Fetches and renders member clubs from `mitglieder.json`, grouped by Bezirk/Kanto
 - Each club `<div>` has an `id` equal to the slugified club name (lowercase, umlauts replaced, non-alphanumeric → hyphens)
 - On load, if the URL has a `#fragment` matching a club id, the element scrolls to it and applies `mitglieder-club--active`
 - Listens to `hashchange` for subsequent fragment navigation
+- Clicking a club row sets `location.hash` to the club's id, triggering coordination with `<zjv-mitglieder-karte>` (see [Coordination](#coordination-between-karte-and-liste) below)
 
 ### Slug examples
 
@@ -194,9 +195,36 @@ Fetches and renders member clubs from `mitglieder.json`, grouped by Bezirk/Kanto
 
 ## zjv-mitglieder-karte
 
-Interactive club map with a Swisstopo WMS base image, SVG region overlays, and club markers. Planned — not yet implemented. See the `mitglieder-map` skill for the asset pipeline.
+Interactive club map with a Swisstopo base image, SVG region overlay, and clickable club markers. Supports scroll-wheel zoom, mouse drag, and touch pinch/pan.
+
+```html
+<zjv-mitglieder-karte src="/zjv/mitglieder/mitglieder.json"></zjv-mitglieder-karte>
+```
+
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| `src` | yes | URL of the `mitglieder.json` data file |
+
+### Behaviour
+
+- Each club with `lat`/`lng` coordinates gets a marker positioned via a linear projection within the bounding box
+- Markers are `<a href="#slug">` links — clicking one sets the URL fragment, which coordinates with `<zjv-mitglieder-liste>`
+- On load and on every `hashchange`, the marker matching the current fragment receives `karte-marker--active`
+- See the `mitglieder-map` skill for the asset pipeline
 
 Assets (in `js/zjv-mitglieder-karte/`):
-- `map.png` — WMS base image, 900×650 px
+- `map.png` — Swisstopo WMS base image, 900×650 px
 - `boundaries.svg` — combined Bezirk/canton overlay, same viewBox
+
+## Coordination between Karte and Liste
+
+The two components communicate exclusively through the URL fragment — no direct JS coupling between them.
+
+| Action | Effect |
+|--------|--------|
+| Click a map marker | Sets `location.hash` → list highlights and scrolls to the club; marker gets `karte-marker--active` |
+| Click a list row | Sets `location.hash` → map marker gets `karte-marker--active`; list highlights the row |
+| Page load with `#fragment` | Both components read `window.location.hash` after their async render and apply the initial selection |
+
+This means the page also supports **deep links**: a URL like `/zjv/mitglieder/#budokan-zuerich` will highlight the correct club in both the map and the list on load.
 

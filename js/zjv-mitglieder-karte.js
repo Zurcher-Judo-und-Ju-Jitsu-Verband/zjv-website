@@ -1,5 +1,10 @@
 // Custom element: <zjv-mitglieder-karte src="/zjv/mitglieder/mitglieder.json">
 // Zoomable club map: Swisstopo base image, SVG region overlay, clickable club markers.
+//
+// Coordination with <zjv-mitglieder-liste>: markers are <a href="#slug"> links.
+// Clicking a marker sets location.hash; the element also listens to hashchange
+// to apply karte-marker--active to the matching marker. No direct coupling to the
+// list element — the URL fragment is the shared state.
 
 import { slugify } from '/js/zjv-utils.js?v=1783867364';
 
