@@ -277,6 +277,8 @@ figure.zjv-md-img-inline {
         padding: 0;
         gap: 0.25rem;
         background: transparent;
+        max-height: none;
+        overflow: visible;
     }
 
     .site-header-nav a {
