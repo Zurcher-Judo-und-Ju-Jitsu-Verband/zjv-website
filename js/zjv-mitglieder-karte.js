@@ -41,8 +41,8 @@ class ZjvMitgliederKarte extends HTMLElement {
         this.innerHTML = `
             <div class="karte-container">
                 <div class="karte-inner">
-                    <img class="karte-base" src="/js/zjv-mitglieder-karte/map.png" alt="Karte ZJV-Region">
-                    <img class="karte-boundaries" src="/js/zjv-mitglieder-karte/boundaries.svg" alt="">
+                    <img class="karte-base" src="/js/zjv-mitglieder-karte/map.png?v=1783958405" alt="Karte ZJV-Region">
+                    <img class="karte-boundaries" src="/js/zjv-mitglieder-karte/boundaries.svg?v=1783958405" alt="">
                     ${markers}
                 </div>
             </div>`;
