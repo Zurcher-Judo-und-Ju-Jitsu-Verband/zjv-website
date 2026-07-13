@@ -2,16 +2,6 @@
   "$schema": "https://zjv.ch/zjv/mitglieder/mitglieder.schema.json",
   "mitglieder": [
     {
-      "name": "Budo-Sport-Club Affoltern am Albis",
-      "bezirk": "Affoltern",
-      "adresse": "Industriestrasse 18",
-      "plz": "8910",
-      "ort": "Affoltern am Albis",
-      "webseite": "http://www.bsca-judo.ch",
-      "lat": 47.271883,
-      "lng": 8.444332
-    },
-    {
       "name": "Budoschule Opfikon",
       "bezirk": "Bülach",
       "adresse": "Industriestrasse 28",
@@ -22,22 +12,12 @@
       "lng": 8.557993
     },
     {
-      "name": "Judo Club Kloten",
-      "bezirk": "Bülach",
-      "adresse": "Schulhaus Nägelimoos",
-      "plz": "8302",
-      "ort": "Kloten",
-      "webseite": "http://www.judo-club-kloten.ch",
-      "lat": 47.452708,
-      "lng": 8.586484
-    },
-    {
       "name": "Judo-Team Bülach",
       "bezirk": "Bülach",
-      "adresse": "Stadthalle Bülach - Allmendstrasse 8",
+      "adresse": "Stadthalle Bülach, Allmendstrasse 8",
       "plz": "8180",
       "ort": "Bülach",
-      "webseite": "http://www.judo-team-buelach.ch",
+      "webseite": "https://www.judo-team-buelach.ch",
       "lat": 47.515669,
       "lng": 8.536531
     },
@@ -52,16 +32,6 @@
       "lng": 8.595042
     },
     {
-      "name": "Selbstverteidigungsclub Glattbrugg",
-      "bezirk": "Bülach",
-      "adresse": "Fabrikstrasse 25",
-      "plz": "8152",
-      "ort": "Glattbrugg",
-      "webseite": "http://www.svc-g.ch",
-      "lat": 47.43415,
-      "lng": 8.563597
-    },
-    {
       "name": "Judo Schule Regensdorf",
       "bezirk": "Dielsdorf",
       "adresse": "Adlikerstrasse 62",
@@ -74,22 +44,12 @@
     {
       "name": "Judo-Sport Club Dietikon",
       "bezirk": "Dietikon",
-      "adresse": "Schulhaus Steinmürli Römerstr.13",
+      "adresse": "Schulhaus Steinmürli, Römerstr.13",
       "plz": "8953",
       "ort": "Dietikon",
       "webseite": "http://www.judo-dietikon.ch/",
       "lat": 47.403084,
       "lng": 8.399335
-    },
-    {
-      "name": "Judoclub Engstringen",
-      "bezirk": "Dietikon",
-      "adresse": "Turnhalle Rebberg, Rebbergstrasse 93",
-      "plz": "8102",
-      "ort": "Oberengstringen",
-      "webseite": "http://www.judoclubengstringen.ch",
-      "lat": 47.409308,
-      "lng": 8.464474
     },
     {
       "name": "Judo-Club Wetzikon",
@@ -134,22 +94,12 @@
     {
       "name": "Judo + Ju-Jitsu Club des Kanton Glarus",
       "bezirk": "Kanton Glarus",
-      "adresse": "Zivilschutzräumlichkeiten Kantonsschule",
+      "adresse": "Zivilschutzräumlichkeiten Kantonsschule Glarus, Winkelstrasse 1",
       "plz": "8750",
       "ort": "Glarus",
       "webseite": "http://www.jjglarus.ch",
       "lat": 47.040572,
       "lng": 9.052335
-    },
-    {
-      "name": "Judoclub Yawara Glarnerland",
-      "bezirk": "Kanton Glarus",
-      "adresse": "Fabrikstrasse 3 - Gebäude F, 1. Stock",
-      "plz": "8867",
-      "ort": "Niederurnen",
-      "webseite": "http://www.yawara.ch",
-      "lat": 47.125618,
-      "lng": 9.053578
     },
     {
       "name": "Judo Club Schaffhausen",
@@ -172,7 +122,7 @@
       "lng": 8.891255
     },
     {
-      "name": "Kampfsportcenter Dojigo Wollerau",
+      "name": "Kampfsportcenter Do-Jigo Wollerau",
       "bezirk": "Kanton Schwyz",
       "adresse": "Roosstrasse 11",
       "plz": "8832",
@@ -190,16 +140,6 @@
       "webseite": "http://www.jjjc-rappi-jona.ch",
       "lat": 47.230937,
       "lng": 8.830015
-    },
-    {
-      "name": "Judo & Ju-Jitsu Schule Gommiswald",
-      "bezirk": "Kanton St. Gallen",
-      "adresse": "Hof 15",
-      "plz": "8737",
-      "ort": "Gommiswald",
-      "webseite": "http://www.judogommiswald.ch",
-      "lat": 47.23829,
-      "lng": 9.008143
     },
     {
       "name": "Judo- und Ju-Jitsuclub Ni-Honto Heiligkreuz",
@@ -222,17 +162,7 @@
       "lng": 9.033174
     },
     {
-      "name": "Judokwai Walenstadt",
-      "bezirk": "Kanton St. Gallen",
-      "adresse": "Schulhaus Escher-Linth",
-      "plz": "8880",
-      "ort": "Walenstadt",
-      "webseite": "http://www.judokwaiwalenstadt.ch",
-      "lat": 47.126833,
-      "lng": 9.3156
-    },
-    {
-      "name": "JC Tsukuri",
+      "name": "JC Tsukuri Männedorf / Stäfa",
       "bezirk": "Meilen",
       "adresse": "Schulhaus Blatten, Schulstrasse 30",
       "plz": "8708",
@@ -262,7 +192,7 @@
       "lng": 8.777268
     },
     {
-      "name": "Budo Club Volketswil",
+      "name": "Budo-Club Volketswil",
       "bezirk": "Uster",
       "adresse": "Eichholzstrasse 11",
       "plz": "8604",
@@ -284,7 +214,7 @@
     {
       "name": "Judo- + Ju-Jitsu-Club Dübendorf",
       "bezirk": "Uster",
-      "adresse": "unter dem Kino Orion",
+      "adresse": "unter dem Kino Orion, Neuhofstrasse 23",
       "plz": "8060",
       "ort": "Dübendorf",
       "webseite": "http://www.jjcd.ch",
@@ -322,8 +252,10 @@
       "lng": 8.521463
     },
     {
-      "name": "IG Pallas - Selbstverteidigung für Frauen und Mädchen",
+      "name": "pa!!as",
       "bezirk": "Kanton Luzern",
+      "adresse": "Rosswöschstrasse 8",
+      "plz": "6017",
       "ort": "Ruswil",
       "webseite": "http://www.pallas.ch",
       "lat": 47.08243,
@@ -360,6 +292,16 @@
       "lng": 8.531223
     },
     {
+      "name": "RLZ Zürich",
+      "bezirk": "Zürich",
+      "adresse": "Lagerstrasse 55",
+      "plz": "8090",
+      "ort": "Zürich",
+      "webseite": "https://rlz-zjv.ch/",
+      "lat": 47.378393,
+      "lng": 8.531223
+    },
+    {
       "name": "Judo- + Ju-Jitsu-Club Weisse Löwen",
       "bezirk": "Zürich",
       "adresse": "Luchswiesenstrasse 186",
@@ -388,6 +330,26 @@
       "webseite": "http://www.pjjcz.ch",
       "lat": 47.359375,
       "lng": 8.512865
+    },
+    {
+      "name": "SUN WU Zürich",
+      "bezirk": "Zürich",
+      "adresse": "Räffelstrasse 29",
+      "plz": "8045",
+      "ort": "Zürich",
+      "webseite": "https://sunwu.ch",
+      "lat": 47.362429,
+      "lng": 8.511177
+    },
+    {
+      "name": "Judo und Jiu-Jitsu-Club Davos",
+      "bezirk": "Kanton Graubünden",
+      "adresse": "Hertistrasse 23",
+      "plz": "7270",
+      "ort": "Davos Platz",
+      "webseite": "http://www.jjjc-davos.ch",
+      "lat": 46.798504,
+      "lng": 9.835283
     }
   ]
 }
