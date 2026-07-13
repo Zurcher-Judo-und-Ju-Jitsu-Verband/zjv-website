@@ -201,6 +201,9 @@ figure.zjv-md-img-inline {
     top: 48px;
     left: 0;
     right: 0;
+    max-height: calc(100dvh - 48px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
     background: #003f6b;
     border-bottom: 2px solid #002a4a;
     padding: 0.5rem 1rem 1rem;
@@ -245,7 +248,9 @@ figure.zjv-md-img-inline {
 }
 
 /* Desktop: show nav inline, hide toggle, restore white */
-@media (min-width: 640px) {
+/* Requires both wide viewport AND a fine pointer (mouse/trackpad) so that   */
+/* touch devices in landscape stay in mobile mode with the hamburger toggle. */
+@media (min-width: 640px) and (hover: hover) and (pointer: fine) {
     .site-header {
         background: #fff;
         border-bottom: 1px solid #ddd;
