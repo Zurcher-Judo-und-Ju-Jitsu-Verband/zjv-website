@@ -57,6 +57,13 @@ class ZjvMitgliederListe extends HTMLElement {
 
         highlight(true);  // scroll on initial load (after async render)
         window.addEventListener('hashchange', () => highlight(true));
+
+        this.addEventListener('click', e => {
+            const club = e.target.closest('.mitglieder-club');
+            if (!club) return;
+            if (e.target.closest('.mitglieder-club-webseite')) return;
+            location.hash = club.id;
+        });
     }
 }
 

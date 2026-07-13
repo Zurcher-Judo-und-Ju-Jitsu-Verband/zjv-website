@@ -48,6 +48,15 @@ class ZjvMitgliederKarte extends HTMLElement {
             </div>`;
 
         this._initInteraction();
+
+        const updateActive = () => {
+            const id = window.location.hash.slice(1);
+            this.querySelectorAll('.karte-marker').forEach(el => {
+                el.classList.toggle('karte-marker--active', el.getAttribute('href') === `#${id}`);
+            });
+        };
+        updateActive();
+        window.addEventListener('hashchange', updateActive);
     }
 
     _initInteraction() {
