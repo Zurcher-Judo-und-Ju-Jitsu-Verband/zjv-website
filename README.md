@@ -40,7 +40,7 @@ The structure below reflects the original Joomla-based site. We aim to preserve 
 
 | Folder               | Section                                                |
 | -------------------- | ------------------------------------------------------ |
-| `/`                  | Home (landing page, links to news)                     |
+| `/`                  | Home (landing page, shows news and kurse)              |
 | `/news/`             | News                                                   |
 | `/kurse/`            | Kurse (Courses)                                        |
 | `/leistungssport/`   | Leistungssport (Competitive sport)                     |
