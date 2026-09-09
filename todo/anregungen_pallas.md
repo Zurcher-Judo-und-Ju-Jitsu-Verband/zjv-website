@@ -6,7 +6,8 @@ Suggestions received via email regarding the "Pallas" section and general site i
 - [ ] Replace scrolling with pagination/blocks ("Blöckli") on the web version.
 - [ ] Make the header more dominant, attractive, and larger overall. Add the logo. Spell out "ZJV" as "Zürcher Judo und Ju Jitsu Verband".
 - [ ] Add a search function so content can be found quickly.
-- [ ] Use "Pallas Selbstverteidigung" consistently everywhere instead of "pa!!as". Alternatively, use the Pallas logo (provided separately) together with the full address: Pallas Selbstverteidigung, Sekretariat, Rosswöschstr. 8, 6017 Ruswil.
+- [x] Use "Pallas Selbstverteidigung" consistently everywhere instead of "pa!!as".
+- [ ] Show a logo for member clubs in the Mitglieder list.
 
 ## Note
 
