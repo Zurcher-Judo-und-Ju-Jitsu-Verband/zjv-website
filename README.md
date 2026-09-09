@@ -44,9 +44,9 @@ The structure below reflects the original Joomla-based site. We aim to preserve 
 | `/news/`             | News                                                   |
 | `/kurse/`            | Kurse (Courses)                                        |
 | `/leistungssport/`   | Leistungssport (Competitive sport)                     |
-| `/nachwuchsturnier/` | Nachwuchsturnier (Youth tournament)                    |
+| `/nachwuchsturnier/` | Nachwuchsturnier (Youth tournament, not yet built)     |
 | `/zjv/`              | ZJV (About us)                                         |
-| `/jobs/`             | Jobs                                                   |
+| `/jobs/`             | Jobs (not yet built)                                   |
 | `/downtime/`         | Downtime page (shown during maintenance)               |
 | `/datenschutz/`      | Datenschutz (Privacy policy)                           |
 | `/impressum/`        | Impressum (Legal notice)                               |
