@@ -2,7 +2,7 @@
 
 Suggestions received via email regarding the "Pallas" section and general site improvements.
 
-- [ ] Rename the "SV/pa!!as" tab to "Pallas Selbstverteidigung" and link it to the Pallas homepage ([www.pallas.ch](http://www.pallas.ch)) instead of linking directly to the self-defense courses. Pallas offers training and continuing education in addition to the self-defense course platform, so the link should point to the main page.
+- [x] Rename the "SV/pa!!as" tab to "Pallas Selbstverteidigung" and link it to the Pallas homepage ([www.pallas.ch](http://www.pallas.ch)) instead of linking directly to the self-defense courses. Pallas offers training and continuing education in addition to the self-defense course platform, so the link should point to the main page.
 - [ ] Replace scrolling with pagination/blocks ("Blöckli") on the web version.
 - [ ] Make the header more dominant, attractive, and larger overall. Add the logo. Spell out "ZJV" as "Zürcher Judo und Ju Jitsu Verband".
 - [ ] Add a search function so content can be found quickly.
