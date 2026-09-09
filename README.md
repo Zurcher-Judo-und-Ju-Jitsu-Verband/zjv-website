@@ -46,6 +46,9 @@ The structure below reflects the original Joomla-based site. We aim to preserve 
 | `/zjv/` | ZJV (About us) |
 | `/jobs/` | Jobs |
 | `/downtime/` | Downtime page (shown during maintenance) |
+| `/datenschutz/` | Datenschutz (Privacy policy) |
+| `/impressum/` | Impressum (Legal notice) |
+| `/todo/` | Project management (pending tasks, not a site section) |
 
 ## Pending Tasks
 
