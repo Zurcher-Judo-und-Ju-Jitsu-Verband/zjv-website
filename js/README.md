@@ -10,6 +10,7 @@ Client-side JavaScript for the ZJV website. All files are plain ES modules, no b
 | `zjv-markdown.js` | — | Pure markdown-to-HTML renderer (no custom element; imported by `zjv-article.js`) |
 | `zjv-article.js` | `<zjv-article>` | Fetches and renders a single article from its `article.md` |
 | `zjv-articles.js` | `<zjv-articles>`, `<zjv-source>` | Collects one or more article sources, merges by date, and renders with lazy loading |
+| `zjv-splash.js` | `<zjv-splash>` | Shows a brief branded splash screen, then fades out and removes itself |
 | `zjv-personen.js` | `<zjv-personen>` | Fetches and renders a contact list from a `personen.json` data file |
 | `zjv-mitgliedschaften.js` | `<zjv-mitgliedschaften>` | Fetches and renders a logo list from a `mitgliedschaften.json` data file |
 | `zjv-mitglieder-liste.js` | `<zjv-mitglieder-liste>` | Fetches and renders member clubs grouped by Bezirk/Kanton from `mitglieder.json` |
@@ -99,6 +100,20 @@ One JSON object per line, ordered newest first. Only `src` is required; other fi
 - Articles load lazily via Intersection Observer as the user scrolls
 - `not-before` / `not-after` filtering is applied before rendering
 - Query param `?article=<folder-name>` renders only that article at `heading-level="1"`
+
+## zjv-splash
+
+Shows a brief branded splash screen (logo + "Zürcher Judo und Ju-Jitsu Verband"), then fades out and removes itself.
+
+```html
+<zjv-splash></zjv-splash>
+```
+
+No attributes. Add it as the first element in `<body>`; it renders as a fixed full-screen overlay regardless of position in the DOM.
+
+### Behaviour
+
+- Displays for ~1s, then fades out over 300ms and removes itself from the DOM
 
 ## zjv-personen
 
