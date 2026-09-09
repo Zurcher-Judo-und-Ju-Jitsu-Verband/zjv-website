@@ -179,6 +179,7 @@ zjv-splash img {
 .zjv-splash-dots {
     display: flex;
     gap: 0.5rem;
+    margin-top: 1rem;
 }
 
 .zjv-splash-dots span {
