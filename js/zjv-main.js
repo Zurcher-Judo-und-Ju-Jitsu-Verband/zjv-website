@@ -37,7 +37,7 @@ class ZjvMain extends HTMLElement {
         header.className = 'site-header';
         header.innerHTML = `
             <div class="site-header-inner">
-                <a class="site-header-logo" href="/"><img src="/zjv-logo.png" alt="ZJV Logo"> ZJV</a>
+                <a class="site-header-logo" href="/"><img src="/zjv-logo.png" alt="ZJV Logo"> Zürcher Judo und Ju Jitsu Verband</a>
                 <button class="site-header-toggle" aria-label="Navigation öffnen" aria-expanded="false">&#9776;</button>
                 <nav class="site-header-nav" aria-label="Hauptnavigation">
                     ${navItems.map(item => this._renderNavItem(item)).join('')}
