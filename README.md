@@ -11,11 +11,13 @@ Maintainer documentation for the ZJV website.
 
 Each section of the site has its own `README.md` with details specific to that section. Keep this top-level README lean — put section-specific information in the appropriate subfolder README instead.
 
-| Section | README |
-|---------|--------|
-| News | [news/README.md](news/README.md) |
-| Kurse | [kurse/README.md](kurse/README.md) |
-| JavaScript | [js/README.md](js/README.md) |
+| Section    | README                                   |
+| ---------- | ---------------------------------------- |
+| News       | [news/README.md](news/README.md)         |
+| Kurse      | [kurse/README.md](kurse/README.md)       |
+| JavaScript | [js/README.md](js/README.md)             |
+| Downtime   | [downtime/README.md](downtime/README.md) |
+| Todo       | [todo/README.md](todo/README.md)         |
 
 ## Overview
 
@@ -30,25 +32,25 @@ This is the source for the ZJV website — the homepage of the cantonal Judo fed
 - **PHP** — server-side rendering (where applicable)
 - **Media** — static files and videos
 
-## Folder Structure
+## Site Folder Structure
 
 The folder structure mirrors the site structure. Each directory corresponds to a section or page of the site.
 
 The structure below reflects the original Joomla-based site. We aim to preserve the content and navigation where reasonable, but some sections may be restructured, merged, or dropped during the rebuild.
 
-| Folder | Section |
-|--------|---------|
-| `/` | Home (landing page, links to news) |
-| `/news/` | News |
-| `/kurse/` | Kurse (Courses) |
-| `/leistungssport/` | Leistungssport (Competitive sport) |
-| `/nachwuchsturnier/` | Nachwuchsturnier (Youth tournament) |
-| `/zjv/` | ZJV (About us) |
-| `/jobs/` | Jobs |
-| `/downtime/` | Downtime page (shown during maintenance) |
-| `/datenschutz/` | Datenschutz (Privacy policy) |
-| `/impressum/` | Impressum (Legal notice) |
-| `/todo/` | Project management (pending tasks, not a site section) |
+| Folder               | Section                                                |
+| -------------------- | ------------------------------------------------------ |
+| `/`                  | Home (landing page, links to news)                     |
+| `/news/`             | News                                                   |
+| `/kurse/`            | Kurse (Courses)                                        |
+| `/leistungssport/`   | Leistungssport (Competitive sport)                     |
+| `/nachwuchsturnier/` | Nachwuchsturnier (Youth tournament)                    |
+| `/zjv/`              | ZJV (About us)                                         |
+| `/jobs/`             | Jobs                                                   |
+| `/downtime/`         | Downtime page (shown during maintenance)               |
+| `/datenschutz/`      | Datenschutz (Privacy policy)                           |
+| `/impressum/`        | Impressum (Legal notice)                               |
+| `/todo/`             | Project management (pending tasks, not a site section) |
 
 ## Pending Tasks
 
@@ -80,23 +82,23 @@ Each item has a `label`, an `href`, and an optional `children` array for sub-nav
 }
 ```
 
-| Field | Required | Description |
-|-------|----------|-------------|
-| `label` | yes | Display text for the link |
-| `href` | yes | Target URL |
-| `children` | no | Sub-navigation items (same structure, recursive) |
+| Field      | Required | Description                                      |
+| ---------- | -------- | ------------------------------------------------ |
+| `label`    | yes      | Display text for the link                        |
+| `href`     | yes      | Target URL                                       |
+| `children` | no       | Sub-navigation items (same structure, recursive) |
 
 ## Design
 
 CSS custom properties are defined in `style.css`.
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `--font-primary` | `Arial, sans-serif` | Body font |
-| `--color-primary` | `#009ddc` | ZJV brand blue, CTAs |
-| `--color-primary-hover` | `#007db0` | Darker brand blue, used on hover |
-| `--color-background` | `#f5f5f5` | Page background |
-| `--color-text` | `#333` | Body text |
+| Token                   | Value               | Usage                            |
+| ----------------------- | ------------------- | -------------------------------- |
+| `--font-primary`        | `Arial, sans-serif` | Body font                        |
+| `--color-primary`       | `#009ddc`           | ZJV brand blue, CTAs             |
+| `--color-primary-hover` | `#007db0`           | Darker brand blue, used on hover |
+| `--color-background`    | `#f5f5f5`           | Page background                  |
+| `--color-text`          | `#333`              | Body text                        |
 
 ### Constraints
 
@@ -173,12 +175,12 @@ Articles are written in a subset of Markdown. Only the following features are su
 ![Alt text](preview-filename "placement|full-filename")
 ```
 
-| Part | Description |
-|------|-------------|
-| `Alt text` | Describes the image for accessibility |
-| `preview-filename` | Filename of the preview image (400px long edge), relative to the article folder |
-| `placement` | `left`, `right`, `center`, or `inline` |
-| `full-filename` | Full-size image, PDF, or external URL, opened when the preview is clicked. Local files open in the same tab; external URLs open in a new tab. |
+| Part               | Description                                                                                                                                   |
+| ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Alt text`         | Describes the image for accessibility                                                                                                         |
+| `preview-filename` | Filename of the preview image (400px long edge), relative to the article folder                                                               |
+| `placement`        | `left`, `right`, `center`, or `inline`                                                                                                        |
+| `full-filename`    | Full-size image, PDF, or external URL, opened when the preview is clicked. Local files open in the same tab; external URLs open in a new tab. |
 
 Example:
 
