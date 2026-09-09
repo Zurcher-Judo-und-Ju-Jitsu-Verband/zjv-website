@@ -54,7 +54,7 @@ The structure below reflects the original Joomla-based site. We aim to preserve 
 
 ## Pending Tasks
 
-See [TODO.md](TODO.md) for pending tasks and improvements.
+See [todo/README.md](todo/README.md) for pending tasks and improvements.
 
 ## Site Navigation
 
