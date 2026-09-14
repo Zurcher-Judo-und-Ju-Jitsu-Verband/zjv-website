@@ -245,7 +245,6 @@ zjv-splash img {
     color: #fff;
     text-decoration: none;
     flex: 1;
-    white-space: nowrap;
 }
 
 .site-header-brand:hover {
@@ -346,6 +345,7 @@ zjv-splash img {
         grid-row: 1;
         flex: none;
         color: var(--color-primary);
+        white-space: nowrap;
     }
 
     .site-header-brand:hover {
