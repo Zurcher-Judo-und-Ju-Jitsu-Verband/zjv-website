@@ -11,19 +11,19 @@
       ]
     },
     {
+      "label": "Nachwuchsturnier",
+      "href": "/nachwuchsturnier",
+      "children": [
+        { "label": "Ausschreibung", "href": "/nachwuchsturnier/ausschreibung" }
+      ]
+    },
+    {
       "label": "Leistungssport",
       "href": "/leistungssport",
       "children": [
         { "label": "RLZ",              "href": "https://rlz-zjv.ch/" },
         { "label": "Kantonalkader",    "href": "http://zjv-kantonalkader.clubdesk.com/clubdesk/www" },
         { "label": "Behindertensport", "href": "/leistungssport/zjv-behindertensport" }
-      ]
-    },
-    {
-      "label": "Nachwuchsturnier",
-      "href": "/nachwuchsturnier",
-      "children": [
-        { "label": "Ausschreibung", "href": "/nachwuchsturnier/ausschreibung" }
       ]
     },
     {
