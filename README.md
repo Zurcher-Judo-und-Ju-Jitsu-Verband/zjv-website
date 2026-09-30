@@ -52,6 +52,8 @@ The structure below reflects the original Joomla-based site. We aim to preserve 
 | `/impressum/`        | Impressum (Legal notice)                               |
 | `/todo/`             | Project management (pending tasks, not a site section) |
 
+`index-dev.html` at the repository root is an inofficial, unlinked entry point mirroring `index.html`. It exists for experimenting with alternative styles without touching the official homepage; keep it in sync with `index.html` structurally, but feel free to diverge in styling for experiments.
+
 ## Pending Tasks
 
 See [todo/README.md](todo/README.md) for pending tasks and improvements.
