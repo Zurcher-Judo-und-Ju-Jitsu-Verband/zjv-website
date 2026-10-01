@@ -10,6 +10,10 @@
 //     <zjv-source src="news"></zjv-source>
 //     <zjv-source src="kurse"></zjv-source>
 //   </zjv-articles>
+//
+// focus-param="<name>": if set, and the URL query string carries that
+// parameter with a value matching an entry's slug, render only that single
+// article instead of the full lazy-loaded list.
 
 import '/js/zjv-article.js?v=1783366164';
 
@@ -53,6 +57,16 @@ class ZjvArticles extends HTMLElement {
 
         if (!entries.length) return;
 
+        const focusParam = this.getAttribute('focus-param');
+        if (focusParam) {
+            const focusSlug = new URLSearchParams(window.location.search).get(focusParam);
+            const match = focusSlug && entries.find(e => e.src === focusSlug);
+            if (match) {
+                this._appendEntry(match, headingLevel);
+                return;
+            }
+        }
+
         // Lazy-load: append one article at a time, observe the last one,
         // append the next when it nears the viewport.
         let index = 0;
@@ -68,11 +82,16 @@ class ZjvArticles extends HTMLElement {
     }
 
     _appendNext(entries, i, observer, headingLevel) {
+        const article = this._appendEntry(entries[i], headingLevel);
+        if (i + 1 < entries.length) observer.observe(article);
+    }
+
+    _appendEntry(entry, headingLevel) {
         const article = document.createElement('zjv-article');
-        article.setAttribute('src', entries[i].fullSrc);
+        article.setAttribute('src', entry.fullSrc);
         article.setAttribute('heading-level', String(headingLevel));
         this.appendChild(article);
-        if (i + 1 < entries.length) observer.observe(article);
+        return article;
     }
 
     async _fetchManifest(src) {
