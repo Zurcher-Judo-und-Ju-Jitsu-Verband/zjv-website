@@ -72,3 +72,24 @@ Start with **Option A**: cheapest way to get real content on `index-dev.html` ne
 (or instead of) `zjv-articles`, lets layout (grid vs. scroll-row) be judged against real
 article counts, and later steps (images/excerpts, horizontal scrolling) are additive
 rather than a rewrite.
+
+## Status: Option A implemented
+
+- `js/zjv-previews.js` — `<zjv-previews>` container: collects `<zjv-source>` children,
+  fetches/merges/filters/sorts manifests (self-contained copy of the
+  `zjv-articles.js` logic, not extracted/shared), then renders one `<zjv-preview>` per
+  entry. No lazy loading (teasers are cheap). Also defines `<zjv-source>` itself,
+  guarded by `customElements.get('zjv-source')` so it doesn't clash when
+  `zjv-articles.js` is also loaded on the page.
+- `js/zjv-preview.js` — `<zjv-preview>` element: fetches only the target article's
+  frontmatter (title + date, via a local `parseFrontmatter`, no markdown body
+  rendering), and renders a link to `<source>/index.html?article=<slug>`.
+- `style.css` — added a wrapping grid (`zjv-previews`,
+  `grid-template-columns: repeat(auto-fill, minmax(200px, 1fr))`) and teaser box
+  styles (`zjv-preview`, `.zjv-preview-link`, `.preview-title`, `.preview-date`).
+- `index-dev.html` — wired up as `<zjv-previews heading-level="2">` with `news` and
+  `kurse` sources, for visual comparison against `<zjv-articles>`.
+
+Not yet done: visual review/iteration against real content (box size/density, layout
+direction, content-per-box — see Open Questions above), and no changes to the
+production `index.html`.

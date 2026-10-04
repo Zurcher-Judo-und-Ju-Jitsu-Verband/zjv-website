@@ -144,6 +144,44 @@ figure.zjv-md-img-inline {
     margin: 1.5rem 0;
 }
 
+/* Compact teaser grid (zjv-previews / zjv-preview) */
+zjv-previews {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+zjv-preview {
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #fff;
+}
+
+zjv-preview:hover {
+    border-color: var(--color-primary);
+}
+
+.zjv-preview-link {
+    display: block;
+    height: 100%;
+    padding: 1rem;
+    color: inherit;
+    text-decoration: none;
+}
+
+.preview-title {
+    font-size: 1rem;
+    margin: 0 0 0.5rem 0;
+}
+
+.preview-date {
+    display: block;
+    font-size: 0.8rem;
+    font-style: italic;
+    color: #999;
+}
+
 /* Splash screen */
 zjv-splash {
     position: fixed;
