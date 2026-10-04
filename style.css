@@ -151,6 +151,10 @@ zjv-previews {
     gap: 1rem;
 }
 
+zjv-previews + zjv-previews {
+    margin-top: 2rem;
+}
+
 zjv-preview {
     display: block;
     border: 1px solid #ddd;
