@@ -42,7 +42,9 @@ class ZjvPreview extends HTMLElement {
             ? `<time class="preview-date" datetime="${escapeHtml(meta.date)}">${formatDate(meta.date)}</time>`
             : '';
 
-        this.innerHTML = `<a class="zjv-preview-link" href="${escapeHtml(href)}">${titleHtml}${dateHtml}</a>`;
+        const imageHtml = '<span class="preview-image" aria-hidden="true"></span>';
+
+        this.innerHTML = `<a class="zjv-preview-link" href="${escapeHtml(href)}">${imageHtml}${titleHtml}${dateHtml}</a>`;
     }
 }
 

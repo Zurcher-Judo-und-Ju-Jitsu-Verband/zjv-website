@@ -157,6 +157,8 @@ zjv-previews + zjv-previews {
 
 zjv-preview {
     display: block;
+    position: relative;
+    margin-top: 35px;
     border: 1px solid #ddd;
     border-radius: 4px;
     background: #fff;
@@ -166,10 +168,23 @@ zjv-preview:hover {
     border-color: var(--color-primary);
 }
 
+.preview-image {
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #ddd;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 1px #ddd;
+}
+
 .zjv-preview-link {
     display: block;
     height: 100%;
-    padding: 1rem;
+    padding: calc(1rem + 35px) 1rem 1rem;
     color: inherit;
     text-decoration: none;
 }
