@@ -474,6 +474,22 @@ zjv-splash img {
     text-decoration: underline;
 }
 
+/* Desktop: pin footer to the bottom of the viewport; reserve matching space */
+/* below the main content so it never hides the end of the page.            */
+@media (min-width: 640px) and (hover: hover) and (pointer: fine) {
+    .site-footer {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin-top: 0;
+    }
+
+    zjv-main {
+        padding-bottom: 10rem;
+    }
+}
+
 /* Mitglieder map */
 .karte-container {
     position: relative;
