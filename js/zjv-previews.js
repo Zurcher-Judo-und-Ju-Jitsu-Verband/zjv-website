@@ -17,7 +17,7 @@
 //     <zjv-source src="kurse"></zjv-source>
 //   </zjv-previews>
 
-import '/js/zjv-preview.js?v=1791123627';
+import '/js/zjv-preview.js?v=1791126413';
 
 // --- ZjvSource ---
 // Declarative source marker, shared with <zjv-articles>; only define it here

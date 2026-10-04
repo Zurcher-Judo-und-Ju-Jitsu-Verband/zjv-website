@@ -2,8 +2,8 @@
 //
 // Compact counterpart to <zjv-article>: fetches only the frontmatter
 // (title, date) of the article's article.md, plus a regex scan for the first
-// image (no full markdown body rendering), and renders a small teaser box
-// linking out to the full article.
+// image and first paragraph (no full markdown body rendering), and renders a
+// small teaser box linking out to the full article.
 
 import { escapeHtml } from '/js/zjv-markdown.js?v=1783528006';
 
@@ -48,7 +48,12 @@ class ZjvPreview extends HTMLElement {
             ? `<span class="preview-image" aria-hidden="true"><img src="${escapeHtml(imageSrc)}" alt="" loading="lazy"></span>`
             : '<span class="preview-image" aria-hidden="true"></span>';
 
-        this.innerHTML = `<a class="zjv-preview-link" href="${escapeHtml(href)}">${imageHtml}${titleHtml}${dateHtml}</a>`;
+        const excerpt = findFirstParagraph(text);
+        const excerptHtml = excerpt
+            ? `<p class="preview-excerpt">${escapeHtml(truncate(excerpt.text, 140, excerpt.hasMore))}</p>`
+            : '';
+
+        this.innerHTML = `<a class="zjv-preview-link" href="${escapeHtml(href)}">${imageHtml}${titleHtml}${dateHtml}${excerptHtml}</a>`;
     }
 }
 
@@ -83,6 +88,43 @@ function findFirstImage(text, basePath) {
     const body = bodyMatch ? bodyMatch[1] : text;
     const img = body.match(/^!\[([^\]]*)\]\((\S+)\s+"([^"]+)"\)\s*$/m);
     return img ? `${basePath}/${img[2]}` : undefined;
+}
+
+// --- First paragraph (plain text, markdown syntax stripped) ---
+
+function findFirstParagraph(text) {
+    const bodyMatch = text.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n([\s\S]*)$/);
+    const body = bodyMatch ? bodyMatch[1] : text;
+    const lines = body.split(/\r?\n/);
+    const paraLines = [];
+    let i = 0;
+    for (; i < lines.length; i++) {
+        const trimmed = lines[i].trim();
+        const isOther = trimmed === '' || trimmed === '---' ||
+            /^#{1,6}\s/.test(trimmed) || /^!\[/.test(trimmed) ||
+            /^-\s/.test(trimmed) || /^\d+\.\s/.test(trimmed);
+        if (isOther) {
+            if (paraLines.length) break;
+            continue;
+        }
+        paraLines.push(trimmed);
+    }
+    if (!paraLines.length) return undefined;
+    // more content (another block) follows the paragraph just collected?
+    const hasMore = lines.slice(i).some(l => l.trim() !== '');
+    const plainText = paraLines.join(' ')
+        .replace(/\*\*([^*]+)\*\*/g, '$1')
+        .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+        .replace(/<br>/g, ' ')
+        .trim();
+    return { text: plainText, hasMore };
+}
+
+function truncate(str, maxLen, forceEllipsis) {
+    if (str.length <= maxLen) return forceEllipsis ? `${str}\u2026` : str;
+    const cut = str.slice(0, maxLen);
+    const lastSpace = cut.lastIndexOf(' ');
+    return (lastSpace > 0 ? cut.slice(0, lastSpace) : cut).trimEnd() + '…';
 }
 
 customElements.define('zjv-preview', ZjvPreview);

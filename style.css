@@ -146,8 +146,9 @@ figure.zjv-md-img-inline {
 
 /* Compact teaser grid (zjv-previews / zjv-preview) */
 zjv-previews {
+    --zjv-preview-columns: 2;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(var(--zjv-preview-columns), 1fr);
     gap: 1rem;
 }
 
@@ -199,15 +200,24 @@ zjv-preview:hover {
 }
 
 .preview-title {
+    display: inline;
     font-size: 1rem;
-    margin: 0 0 0.5rem 0;
+    margin: 0;
 }
 
 .preview-date {
-    display: block;
+    display: inline;
+    white-space: nowrap;
+    margin-left: 0.5rem;
     font-size: 0.8rem;
     font-style: italic;
     color: #999;
+}
+
+.preview-excerpt {
+    font-size: 0.85rem;
+    color: #555;
+    margin: 0.5rem 0 0 0;
 }
 
 /* Splash screen */
