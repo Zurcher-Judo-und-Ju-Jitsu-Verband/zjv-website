@@ -5,18 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZJV</title>
     <link rel="icon" type="image/png" href="/zjv-logo.png">
-    <link rel="stylesheet" href="/style.css?v=1791126413">
+    <link rel="stylesheet" href="/style.css?v=1791127317">
     <script type="module" src="/js/zjv-splash.js?v=1788983883"></script>
     <script type="module" src="/js/zjv-articles.js?v=1790824373"></script>
+    <script type="module" src="/js/zjv-previews.js?v=1791123627"></script>
     <script type="module" src="/js/zjv-main.js?v=1789409243"></script>
 </head>
 <body>
     <zjv-splash></zjv-splash>
     <zjv-main>
-        <zjv-articles heading-level="1">
+        <zjv-articles class="zjv-mobile-only" heading-level="1">
             <zjv-source src="news"></zjv-source>
             <zjv-source src="kurse"></zjv-source>
         </zjv-articles>
+        <zjv-previews class="zjv-desktop-only" heading-level="1">
+            <zjv-source src="news"></zjv-source>
+            <zjv-source src="kurse"></zjv-source>
+        </zjv-previews>
     </zjv-main>
 </body>
 </html>

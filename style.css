@@ -566,6 +566,28 @@ zjv-splash img {
     }
 }
 
+/* Frontpage: show full articles on mobile/touch, compact previews on desktop. */
+/* Same breakpoint as the header/footer desktop rules above, for consistency. */
+.zjv-desktop-only {
+    display: none;
+}
+
+@media (min-width: 640px) and (hover: hover) and (pointer: fine) {
+    .zjv-mobile-only {
+        display: none;
+    }
+
+    /* "revert" would roll back past zjv-previews's own display:grid rule too */
+    /* (it undoes ALL author CSS, not just this one), so set displays explicitly. */
+    zjv-articles.zjv-desktop-only {
+        display: block;
+    }
+
+    zjv-previews.zjv-desktop-only {
+        display: grid;
+    }
+}
+
 /* Mitglieder map */
 .karte-container {
     position: relative;
