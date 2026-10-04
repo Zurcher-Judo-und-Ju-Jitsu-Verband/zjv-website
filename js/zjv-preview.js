@@ -1,8 +1,9 @@
 // Custom element: <zjv-preview src="news/slug" href="/news/index.html?article=slug" heading-level="2">
 //
 // Compact counterpart to <zjv-article>: fetches only the frontmatter
-// (title, date) of the article's article.md - no markdown body rendering -
-// and renders a small teaser box linking out to the full article.
+// (title, date) of the article's article.md, plus a regex scan for the first
+// image (no full markdown body rendering), and renders a small teaser box
+// linking out to the full article.
 
 import { escapeHtml } from '/js/zjv-markdown.js?v=1783528006';
 
@@ -42,7 +43,10 @@ class ZjvPreview extends HTMLElement {
             ? `<time class="preview-date" datetime="${escapeHtml(meta.date)}">${formatDate(meta.date)}</time>`
             : '';
 
-        const imageHtml = '<span class="preview-image" aria-hidden="true"></span>';
+        const imageSrc = findFirstImage(text, basePath);
+        const imageHtml = imageSrc
+            ? `<span class="preview-image" aria-hidden="true"><img src="${escapeHtml(imageSrc)}" alt="" loading="lazy"></span>`
+            : '<span class="preview-image" aria-hidden="true"></span>';
 
         this.innerHTML = `<a class="zjv-preview-link" href="${escapeHtml(href)}">${imageHtml}${titleHtml}${dateHtml}</a>`;
     }
@@ -70,6 +74,15 @@ function parseFrontmatter(text) {
         meta[key] = val;
     }
     return meta;
+}
+
+// --- First image (same syntax as zjv-markdown.js, but body is not otherwise rendered) ---
+
+function findFirstImage(text, basePath) {
+    const bodyMatch = text.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n([\s\S]*)$/);
+    const body = bodyMatch ? bodyMatch[1] : text;
+    const img = body.match(/^!\[([^\]]*)\]\((\S+)\s+"([^"]+)"\)\s*$/m);
+    return img ? `${basePath}/${img[2]}` : undefined;
 }
 
 customElements.define('zjv-preview', ZjvPreview);
