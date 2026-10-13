@@ -16,7 +16,7 @@ class ZjvMain extends HTMLElement {
             <div class="site-footer-inner">
                 <div class="site-footer-memberships">
                     <span class="site-footer-label">Der ZJV ist Mitglied bei:</span>
-                    <zjv-mitgliedschaften src="/zjv/mitgliedschaften/mitgliedschaften.json"></zjv-mitgliedschaften>
+                    <zjv-mitgliedschaften src="/zjv/mitgliedschaften/mitgliedschaften.json?v=1791913790"></zjv-mitgliedschaften>
                 </div>
                 <nav class="site-footer-nav">
                     <a href="/impressum">Impressum</a> &middot;
