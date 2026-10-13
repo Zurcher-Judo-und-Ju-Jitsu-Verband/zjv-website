@@ -71,7 +71,7 @@ class ZjvPreviews extends HTMLElement {
     async _fetchManifest(src) {
         let text;
         try {
-            const res = await fetch(`/${src}/articles.jsonl`);
+            const res = await fetch(`/${src}/articles.jsonl`, { cache: 'no-cache' });
             if (!res.ok) {
                 console.warn(`zjv-previews: failed to load /${src}/articles.jsonl (HTTP ${res.status})`);
                 this._appendError(`Inhalte konnten nicht geladen werden (${src}).`);
