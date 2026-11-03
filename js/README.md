@@ -10,6 +10,7 @@ Client-side JavaScript for the ZJV website. All files are plain ES modules, no b
 | `zjv-markdown.js` | — | Pure markdown-to-HTML renderer (no custom element; imported by `zjv-article.js`) |
 | `zjv-article.js` | `<zjv-article>` | Fetches and renders a single article from its `article.md` |
 | `zjv-articles.js` | `<zjv-articles>`, `<zjv-source>` | Collects one or more article sources, merges by date, and renders with lazy loading |
+| `zjv-search.js` | `<zjv-search>` | Searches configured Markdown sources on demand; inline on desktop, modal on mobile |
 | `zjv-splash.js` | `<zjv-splash>` | Shows a brief branded splash screen, then fades out and removes itself |
 | `zjv-personen.js` | `<zjv-personen>` | Fetches and renders a contact list from a `personen.json` data file |
 | `zjv-mitgliedschaften.js` | `<zjv-mitgliedschaften>` | Fetches and renders a logo list from a `mitgliedschaften.json` data file |
@@ -100,6 +101,38 @@ One JSON object per line, ordered newest first. Only `src` is required; other fi
 - Articles load lazily via Intersection Observer as the user scrolls
 - `not-before` / `not-after` filtering is applied before rendering
 - Query param `?article=<folder-name>` renders only that article at `heading-level="1"`
+
+## zjv-search
+
+```html
+<zjv-search max-results="5">
+  <zjv-source type="articles" src="/news"></zjv-source>
+  <zjv-source type="articles" src="/kurse"></zjv-source>
+  <zjv-source type="markdown" src="/zjv/vorstellung/article.md"
+      href="/zjv/vorstellung/"></zjv-source>
+</zjv-search>
+```
+
+- `max-results` defaults to 5 (supported range: 1–20).
+- `type="articles"` reads `articles.jsonl` under `src`, then each listed `article.md`.
+  Hits link to the section's `?article=<slug>` view.
+- `type="markdown"` fetches the file at `src`; `href` specifies its canonical page.
+- Search starts automatically after at least three trimmed characters and a
+  250 ms typing pause. No search content is fetched before that. Opening the
+  mobile dialog does not fetch content. Other front-page components retain their
+  own loading behaviour.
+- Fetched files and the searchable documents are cached in memory. Failed loads
+  are retried on the next search; available hits are shown with a warning.
+- Search covers titles and Markdown text, not image contents, image labels, HTML
+  pages or PDF contents. Link labels are included, but link destinations are not.
+- All query words must match. Matching ignores case and accents; title matches
+  rank above body matches, with newer dates breaking ties.
+- Both manifest and Markdown visibility dates are respected. Duplicate Markdown
+  URLs use the destination with the deepest pathname.
+- The field has a magnifier and an accessible name, without a visible label or
+  submit button. Desktop limits the input to 24 rem, with wider results below.
+- Desktop uses an inline form and results. Mobile/touch uses a launcher and a
+  native full-screen dialog with Escape, focus trapping and focus restoration.
 
 ## zjv-splash
 

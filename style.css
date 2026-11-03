@@ -572,6 +572,153 @@ zjv-splash img {
     display: none;
 }
 
+zjv-search {
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
+zjv-search button {
+    min-height: 44px;
+    padding: 0.6rem 0.9rem;
+    border: 1px solid var(--color-primary-hover);
+    border-radius: 4px;
+    background: var(--color-primary-hover);
+    color: #fff;
+    font: inherit;
+    cursor: pointer;
+}
+
+zjv-search button:hover {
+    background: #005d83;
+}
+
+zjv-search :is(button, input, a):focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+}
+
+.search-inline {
+    display: none;
+}
+
+.search-dialog {
+    inset: 0;
+    width: 100%;
+    max-width: none;
+    height: 100dvh;
+    max-height: none;
+    margin: 0;
+    padding: max(1rem, env(safe-area-inset-top)) 1rem max(1rem, env(safe-area-inset-bottom));
+    border: 0;
+    background: var(--color-background);
+    color: var(--color-text);
+    overscroll-behavior: contain;
+}
+
+body:has(.search-dialog[open]) {
+    overflow: hidden;
+}
+
+.search-panel {
+    width: 100%;
+    max-width: 688px;
+    margin: 0 auto;
+}
+
+.search-close {
+    display: block;
+    margin: 0 0 1.5rem auto;
+}
+
+.search-form {
+    width: 100%;
+}
+
+.search-label {
+    display: block;
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    inset: 0 auto 0 0.75rem;
+    display: flex;
+    align-items: center;
+    color: #555;
+    pointer-events: none;
+}
+
+.search-label input {
+    width: 100%;
+    min-width: 0;
+    min-height: 44px;
+    border: 1px solid #999;
+    border-radius: 4px;
+    padding: 0.6rem 0.6rem 0.6rem 2.5rem;
+    background: #fff;
+    color: var(--color-text);
+    font: inherit;
+    font-size: 1rem;
+}
+
+.search-status {
+    font-size: 0.9rem;
+}
+
+.search-status:empty,
+.search-results:empty {
+    display: none;
+}
+
+.search-results {
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.search-results li {
+    border-top: 1px solid #ccc;
+}
+
+.search-results a {
+    display: grid;
+    gap: 0.4rem;
+    padding: 1rem 0;
+    color: inherit;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.search-results a:hover strong {
+    text-decoration: underline;
+}
+
+.search-results strong {
+    color: var(--color-primary-hover);
+}
+
+.search-results small,
+.search-results span {
+    color: #555;
+    font-size: 0.85rem;
+}
+
+@media (min-width: 640px) and (hover: hover) and (pointer: fine) {
+    .search-launcher,
+    .search-close {
+        display: none;
+    }
+
+    .search-inline {
+        display: block;
+    }
+
+    .search-form {
+        max-width: 24rem;
+        margin: 0 auto;
+    }
+}
+
 zjv-photo-carousel {
     position: relative;
     display: block;

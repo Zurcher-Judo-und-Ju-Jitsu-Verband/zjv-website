@@ -5,15 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZJV (dev)</title>
     <link rel="icon" type="image/png" href="/zjv-logo.png">
-    <link rel="stylesheet" href="/style.css?v=1793680606">
+    <link rel="stylesheet" href="/style.css?v=1793682504">
     <script type="module" src="/js/zjv-splash.js?v=1788983883"></script>
     <script type="module" src="/js/zjv-articles.js?v=1791912951"></script>
     <script type="module" src="/js/zjv-previews.js?v=1791912951"></script>
+    <script type="module" src="/js/zjv-search.js?v=1793682504"></script>
     <script type="module" src="/js/zjv-main.js?v=1791913790"></script>
 </head>
 <body>
     <zjv-splash></zjv-splash>
     <zjv-main>
+        <zjv-search max-results="5">
+            <zjv-source type="articles" src="/news"></zjv-source>
+            <zjv-source type="articles" src="/kurse"></zjv-source>
+            <zjv-source type="markdown" src="/zjv/vorstellung/article.md" href="/zjv/vorstellung/"></zjv-source>
+            <zjv-source type="markdown" src="/leistungssport/article.md" href="/leistungssport/"></zjv-source>
+            <zjv-source type="markdown" src="/leistungssport/zjv-behindertensport/article.md" href="/leistungssport/zjv-behindertensport/"></zjv-source>
+            <zjv-source type="markdown" src="/nachwuchsturnier/ausschreibung/article.md" href="/nachwuchsturnier/ausschreibung/"></zjv-source>
+            <zjv-source type="markdown" src="/impressum/article.md" href="/impressum/"></zjv-source>
+            <zjv-source type="markdown" src="/datenschutz/article.md" href="/datenschutz/"></zjv-source>
+        </zjv-search>
         <zjv-previews heading-level="1">
             <zjv-source src="news"></zjv-source>
             <zjv-source src="kurse"></zjv-source>
