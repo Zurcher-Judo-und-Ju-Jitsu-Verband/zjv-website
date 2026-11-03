@@ -131,8 +131,12 @@ One JSON object per line, ordered newest first. Only `src` is required; other fi
   URLs use the destination with the deepest pathname.
 - The field has a magnifier and an accessible name, without a visible label or
   submit button. Desktop limits the input to 24 rem, with wider results below.
-- Desktop uses an inline form and results. Mobile/touch uses a launcher and a
-  native full-screen dialog with Escape, focus trapping and focus restoration.
+- Desktop shows a clear cross when the input contains text. It wipes the query,
+  results and status, cancels pending searches, and returns focus to the input.
+- Desktop uses an inline form and results. Mobile/touch shows a search field
+  that opens a native full-screen dialog on focus. Closing with the cross or
+  Escape wipes the query, results and status. The cross has an accessible label;
+  the dialog provides focus trapping and focus restoration.
 
 ## zjv-splash
 

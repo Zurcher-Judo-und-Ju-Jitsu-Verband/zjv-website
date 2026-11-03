@@ -11,23 +11,28 @@ class ZjvSearch extends HTMLElement {
         this._cache = new Map();
         this._revision = 0;
         this.innerHTML = `
-            <button class="search-launcher" type="button">Suche öffnen</button>
+            <label class="search-launcher search-label">
+                <span class="search-icon" aria-hidden="true">&#128269;&#65038;</span>
+                <input type="search" placeholder="Suchen" aria-label="Website durchsuchen" aria-haspopup="dialog" autocomplete="off">
+            </label>
             <div class="search-inline"></div>
             <dialog class="search-dialog" aria-label="Website durchsuchen"></dialog>`;
         this._panel = document.createElement('div');
         this._panel.className = 'search-panel';
         this._panel.innerHTML = `
-            <button class="search-close" type="button">Schliessen</button>
+            <button class="search-close" type="button" aria-label="Suche schliessen" title="Suche schliessen"><span aria-hidden="true">&#215;</span></button>
             <form class="search-form" role="search">
                 <label class="search-label">
                     <span class="search-icon" aria-hidden="true">&#128269;&#65038;</span>
                     <input type="search" name="q" placeholder="Suchen" aria-label="Website durchsuchen" minlength="3" autocomplete="off">
                 </label>
+                <button class="search-clear" type="button" aria-label="Suche leeren" title="Suche leeren" hidden><span aria-hidden="true">&#215;</span></button>
             </form>
             <p class="search-status" role="status" aria-live="polite"></p>
             <ol class="search-results"></ol>`;
         this._dialog = this.querySelector('dialog');
         this._input = this._panel.querySelector('input');
+        this._clear = this._panel.querySelector('.search-clear');
         this._status = this._panel.querySelector('.search-status');
         this._results = this._panel.querySelector('ol');
         this._panel.querySelector('form').addEventListener('submit', event => {
@@ -38,25 +43,64 @@ class ZjvSearch extends HTMLElement {
         this._input.addEventListener('input', () => {
             clearTimeout(this._timer);
             this._revision++;
+            this._clear.hidden = !this._input.value.length;
             this._results.replaceChildren();
             this._status.textContent = '';
             if (this._input.value.trim().length >= 3) {
                 this._timer = setTimeout(() => this._search(), 250);
             }
         });
-        this.querySelector('.search-launcher').addEventListener('click', () => {
-            this._dialog.showModal();
+        this._clear.addEventListener('click', () => {
+            this._reset();
             this._input.focus();
         });
-        this._panel.querySelector('.search-close').addEventListener('click', () => this._dialog.close());
+        this._launcher = this.querySelector('.search-launcher input');
+        const openSearch = () => {
+            if (this._closing || this._dialog.open) return;
+            this._input.value = this._launcher.value;
+            this._clear.hidden = !this._input.value.length;
+            this._dialog.showModal();
+            this._input.focus();
+        };
+        this._launcher.addEventListener('focus', openSearch);
+        this._launcher.addEventListener('click', openSearch);
+        this._launcher.addEventListener('input', () => {
+            openSearch();
+            this._input.value = this._launcher.value;
+            this._input.dispatchEvent(new Event('input'));
+        });
+        this._dialog.addEventListener('cancel', () => {
+            this._closing = true;
+            this._reset();
+        });
+        this._dialog.addEventListener('close', () => {
+            this._launcher.value = this._input.value;
+            this._closing = false;
+        });
+        this._panel.querySelector('.search-close').addEventListener('click', () => {
+            this._closing = true;
+            this._reset();
+            this._dialog.close();
+        });
         this._desktop = matchMedia('(min-width: 640px) and (hover: hover) and (pointer: fine)');
         this._layout = () => {
-            if (this._dialog.open) this._dialog.close();
+            this._launcher.value = this._input.value;
+            this._clear.hidden = !this._input.value.length;
+            if (this._dialog.open) {
+                this._closing = true;
+                this._dialog.close();
+            }
             const host = this._desktop.matches ? this.querySelector('.search-inline') : this._dialog;
             host.appendChild(this._panel);
         };
         this._desktop.addEventListener('change', this._layout);
         this._layout();
+    }
+
+    _reset() {
+        this._input.value = '';
+        this._launcher.value = '';
+        this._input.dispatchEvent(new Event('input'));
     }
 
     disconnectedCallback() {

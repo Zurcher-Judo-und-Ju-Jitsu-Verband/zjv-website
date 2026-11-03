@@ -588,10 +588,6 @@ zjv-search button {
     cursor: pointer;
 }
 
-zjv-search button:hover {
-    background: #005d83;
-}
-
 zjv-search :is(button, input, a):focus-visible {
     outline: 3px solid var(--color-primary);
     outline-offset: 3px;
@@ -630,13 +626,38 @@ body:has(.search-dialog[open]) {
     margin: 0 0 1.5rem auto;
 }
 
+zjv-search .search-close,
+zjv-search .search-clear {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--color-text);
+    font-size: 2rem;
+    line-height: 1;
+}
+
+zjv-search .search-clear {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 .search-form {
     width: 100%;
+    position: relative;
 }
 
 .search-label {
     display: block;
     position: relative;
+}
+
+.search-label.search-launcher {
+    max-width: 688px;
+    margin: 0 auto;
 }
 
 .search-icon {
@@ -704,7 +725,7 @@ body:has(.search-dialog[open]) {
 }
 
 @media (min-width: 640px) and (hover: hover) and (pointer: fine) {
-    .search-launcher,
+    .search-label.search-launcher,
     .search-close {
         display: none;
     }
@@ -716,6 +737,19 @@ body:has(.search-dialog[open]) {
     .search-form {
         max-width: 24rem;
         margin: 0 auto;
+    }
+
+    .search-form input {
+        padding-right: 3rem;
+    }
+
+    .search-form input::-webkit-search-cancel-button {
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    zjv-search .search-clear:not([hidden]) {
+        display: block;
     }
 }
 
